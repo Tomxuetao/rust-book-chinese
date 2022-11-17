@@ -1,4 +1,4 @@
-## 使用 `cargo install` 从 Crates.io 安装二进制文件
+# 使用 `cargo install` 从 Crates.io 安装二进制文件
 
 > [ch14-04-installing-binaries.md](https://github.com/rust-lang/book/blob/main/src/ch14-04-installing-binaries.md)
 > <br>

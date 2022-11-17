@@ -1,4 +1,4 @@
-## 使用 `Drop` Trait 运行清理代码
+# 使用 `Drop` Trait 运行清理代码
 
 > [ch15-03-drop.md](https://github.com/rust-lang/book/blob/main/src/ch15-03-drop.md) <br>
 > commit d44317c3122b44fb713aba66cc295dee3453b24b

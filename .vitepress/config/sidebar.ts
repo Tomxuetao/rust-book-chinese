@@ -1,7 +1,12 @@
-import fs from 'node:fs'
-import { defineConfig } from 'vitepress'
+// @ts-ignore
+import fs from "node:fs";
 
-const sidebarConfigMap = new Map([
+export interface SidebarItem {
+  title: String,
+  nextTitleList: Array<String>
+}
+
+const sidebarConfigMap: Map<Number, SidebarItem> = new Map([
   [1,
     {
       title: '入门指南',
@@ -118,9 +123,10 @@ const sidebarConfigMap = new Map([
   ]
 ])
 
-const createSidebarByConfig = (configMap) => {
-  const keys = [...configMap.keys()]
-  const fileNameList = fs.readdirSync('./src') || []
+export const createSidebarByConfig = (configMap = sidebarConfigMap) => {
+  // @ts-ignore
+  const keys: number[] = [...configMap.keys()]
+  const fileNameList: String[] = fs.readdirSync('./src') || []
   const sidebarList = []
   keys.forEach(key => {
     const { title, nextTitleList } = configMap.get(key)
@@ -129,61 +135,14 @@ const createSidebarByConfig = (configMap) => {
       const matchName = key > 9 ? `${key}-${index > 9 ? index : '0' + (index + 1)}` : `0${key}-${index > 9 ? (index + 1) : '0' + (index + 1)}`
       const fileName = fileNameList.find(tempName => tempName.includes(matchName))
       nextList.push({
-        text: `${key}.${index + 1}.${name}`,
+        text: `${key}.${index + 1}. ${name}`,
         link: `/${fileName}`
       })
     })
     sidebarList.push({
-      text: `${key}.${title}`,
+      text: `${key}. ${title}`,
       items: nextList
     })
   })
   return sidebarList
 }
-
-const sidebarList = createSidebarByConfig(sidebarConfigMap)
-
-export default defineConfig({
-  title: 'Rust 程序设计语言',
-  description: '12',
-  srcDir: 'src',
-  lang: 'en-US',
-  base: '/rust-book-chinese/',
-  logo: './logo.svg',
-  lastUpdated: true,
-  ignoreDeadLinks: true,
-  head: [
-    [
-      'link',
-      {
-        rel: 'icon',
-        href: './logo.svg'
-      }
-    ]
-  ],
-  themeConfig: {
-    logo: '/logo.svg',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/Tomxuetao/rust-book-chinese.git' }
-    ],
-    localeLinks: {
-      text: '简体中文',
-      items: [
-        { text: 'English', link: 'https://doc.rust-lang.org/book/' },
-        { text: '简体中文', link: 'https://kaisery.github.io/trpl-zh-cn/' }
-      ]
-    },
-    nav: [
-      {
-        text: '相关链接',
-        items: [
-          {
-            text: '原文地址',
-            link: 'https://kaisery.github.io/trpl-zh-cn/'
-          }
-        ]
-      }
-    ],
-    sidebar: sidebarList
-  }
-})

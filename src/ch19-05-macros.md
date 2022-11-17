@@ -1,6 +1,6 @@
-## 宏
+# 宏
 
-> [ch19-06-macros.md](https://github.com/rust-lang/book/blob/main/src/ch19-06-macros.md)
+> [ch19-05-macros.md](https://github.com/rust-lang/book/blob/main/src/ch19-05-macros.md)
 > <br>
 > commit acc806a06b5a23c7397b7218aecec0e774619512
 
@@ -12,7 +12,7 @@
 
 我们会依次讨论每一种宏，不过首要的是，为什么已经有了函数还需要宏呢？
 
-### 宏和函数的区别
+## 宏和函数的区别
 
 从根本上来说，宏是一种为写其他代码而写代码的方式，即所谓的 **元编程**（*metaprogramming*）。在附录 C 中会探讨 `derive` 属性，其生成各种 trait 的实现。我们也在本书中使用过 `println!` 宏和 `vec!` 宏。所有的这些宏以 **展开** 的方式来生成比你所手写出的更多的代码。
 
@@ -24,7 +24,7 @@
 
 宏和函数的最后一个重要的区别是：在一个文件里调用宏 **之前** 必须定义它，或将其引入作用域，而函数则可以在任何地方定义和调用。
 
-### 使用 `macro_rules!` 的声明宏用于通用元编程
+## 使用 `macro_rules!` 的声明宏用于通用元编程
 
 Rust 最常用的宏形式是 **声明宏**（*declarative macros*）。它们有时也被称为 “macros by example”、“`macro_rules!` 宏” 或者就是 “macros”。其核心概念是，声明宏允许我们编写一些类似 Rust `match` 表达式的代码。正如在第六章讨论的那样，`match` 表达式是控制结构，其接收一个表达式，与表达式的结果进行模式匹配，然后根据模式匹配执行相关代码。宏也将一个值和包含相关代码的模式进行比较；此种情况下，该值是传递给宏的 Rust 源代码字面值，模式用于和前面提到的源代码字面值进行比较，每个模式的相关代码会替换传递给宏的代码。所有这一切都发生于编译时。
 
@@ -81,7 +81,7 @@ let v: Vec<u32> = vec![1, 2, 3];
 
 [tlborm]: https://veykril.github.io/tlborm/
 
-### 用于从属性生成代码的过程宏
+## 用于从属性生成代码的过程宏
 
 第二种形式的宏被称为 **过程宏**（*procedural macros*），因为它们更像函数（一种过程类型）。过程宏接收 Rust 代码作为输入，在这些代码上进行操作，然后产生另一些代码作为输出，而非像声明式宏那样匹配对应模式然后以另一部分代码替换当前代码。
 
@@ -105,7 +105,7 @@ pub fn some_name(input: TokenStream) -> TokenStream {
 
 让我们看看不同种类的程序宏。 我们将从一个自定义的派生宏开始，然后解释使其他形式不同的小差异。
 
-### 如何编写自定义 `derive` 宏
+## 如何编写自定义 `derive` 宏
 
 让我们创建一个 `hello_macro` crate，其包含名为 `HelloMacro` 的 trait 和关联函数 `hello_macro`。不同于让 crate 的用户为其每一个类型实现 `HelloMacro` trait，我们将会提供一个过程式宏以便用户可以使用 `#[derive(HelloMacro)]` 注解他们的类型来得到 `hello_macro` 函数的默认实现。该默认实现会打印 `Hello, Macro! My name is TypeName!`，其中 `TypeName` 为定义了 trait 的类型名。换言之，我们会创建一个 crate，使程序员能够写类似示例 19-30 中的代码。
 

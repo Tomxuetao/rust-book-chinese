@@ -1,4 +1,4 @@
-## Slice 类型
+# Slice 类型
 
 > [ch04-03-slices.md](https://github.com/rust-lang/book/blob/main/src/ch04-03-slices.md)
 > <br>
@@ -58,7 +58,7 @@ fn second_word(s: &String) -> (usize, usize) {
 
 幸运的是，Rust 为这个问题提供了一个解决方法：字符串 slice。
 
-### 字符串 slice
+## 字符串 slice
 
 **字符串 slice**（*string slice*）是 `String` 中一部分值的引用，它看起来像这样：
 
@@ -133,7 +133,7 @@ fn second_word(s: &String) -> &str {
 
 回忆一下借用规则，当拥有某值的不可变引用时，就不能再获取一个可变引用。因为 `clear` 需要清空 `String`，它尝试获取一个可变引用。在调用 `clear` 之后的 `println!` 使用了 `word` 中的引用，所以这个不可变的引用在此时必须仍然有效。Rust 不允许 `clear` 中的可变引用和 `word` 中的不可变引用同时存在，因此编译失败。Rust 不仅使得我们的 API 简单易用，也在编译时就消除了一整类的错误！
 
-#### 字符串字面值就是 slice
+### 字符串字面值就是 slice
 
 还记得我们讲到过字符串字面值被储存在二进制文件中吗？现在知道 slice 了，我们就可以正确地理解字符串字面值了：
 
@@ -143,7 +143,7 @@ let s = "Hello, world!";
 
 这里 `s` 的类型是 `&str`：它是一个指向二进制程序特定位置的 slice。这也就是为什么字符串字面值是不可变的；`&str` 是一个不可变引用。
 
-#### 字符串 slice 作为参数
+### 字符串 slice 作为参数
 
 在知道了能够获取字面值和 `String` 的 slice 后，我们对 `first_word` 做了改进，这是它的签名：
 
@@ -163,7 +163,7 @@ fn first_word(s: &String) -> &str {
 
 <<< @/listings/ch04-understanding-ownership/listing-04-09/src/main.rs
 
-### 其他类型的 slice
+## 其他类型的 slice
 
 字符串 slice，正如你想象的那样，是针对字符串的。不过也有更通用的 slice 类型。考虑一下这个数组：
 

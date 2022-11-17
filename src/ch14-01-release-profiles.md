@@ -1,4 +1,4 @@
-## 采用发布配置自定义构建
+# 采用发布配置自定义构建
 
 > [ch14-01-release-profiles.md](https://github.com/rust-lang/book/blob/main/src/ch14-01-release-profiles.md)
 > <br>

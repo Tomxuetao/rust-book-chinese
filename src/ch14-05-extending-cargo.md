@@ -1,4 +1,4 @@
-## Cargo 自定义扩展命令
+# Cargo 自定义扩展命令
 
 > [ch14-05-extending-cargo.md](https://github.com/rust-lang/book/blob/main/src/ch14-05-extending-cargo.md)
 > <br>

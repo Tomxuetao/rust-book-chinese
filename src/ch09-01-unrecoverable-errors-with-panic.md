@@ -1,4 +1,4 @@
-## 用 `panic!` 处理不可恢复的错误
+# 用 `panic!` 处理不可恢复的错误
 
 > [ch09-01-unrecoverable-errors-with-panic.md](https://github.com/rust-lang/book/blob/main/src/ch09-01-unrecoverable-errors-with-panic.md)
 > <br>
@@ -29,7 +29,7 @@
 
 在这个例子中，被指明的那一行是我们代码的一部分，而且查看这一行的话就会发现 `panic!` 宏的调用。在其他情况下，`panic!` 可能会出现在我们的代码所调用的代码中。错误信息报告的文件名和行号可能指向别人代码中的 `panic!` 宏调用，而不是我们代码中最终导致 `panic!` 的那一行。我们可以使用 `panic!` 被调用的函数的 backtrace 来寻找代码中出问题的地方。下面我们会详细介绍 backtrace 是什么。
 
-### 使用 `panic!` 的 backtrace
+## 使用 `panic!` 的 backtrace
 
 让我们来看看另一个因为我们代码中的 bug 引起的别的库中 `panic!` 的例子，而不是直接的宏调用。示例 9-1 有一些尝试通过索引访问 vector 中元素的例子：
 

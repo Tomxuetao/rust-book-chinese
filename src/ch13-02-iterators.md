@@ -1,4 +1,4 @@
-## 使用迭代器处理元素序列
+# 使用迭代器处理元素序列
 
 > [ch13-02-iterators.md](https://github.com/rust-lang/book/blob/main/src/ch13-02-iterators.md)
 > <br>
@@ -24,7 +24,7 @@
 
 迭代器为我们处理了所有这些逻辑，这减少了重复代码并消除了潜在的混乱。另外，迭代器的实现方式提供了对多种不同的序列使用相同逻辑的灵活性，而不仅仅是像 vector 这样可索引的数据结构.让我们看看迭代器是如何做到这些的。
 
-### `Iterator` trait 和 `next` 方法
+## `Iterator` trait 和 `next` 方法
 
 迭代器都实现了一个叫做 `Iterator` 的定义于标准库的 trait。这个 trait 的定义看起来像这样：
 
@@ -48,14 +48,13 @@ pub trait Iterator {
 
 <<< @/listings/ch13-functional-features/listing-13-15/src/lib.rs
 
-
 <span class="caption">示例 13-15：在迭代器上（直接）调用 `next` 方法</span>
 
 注意 `v1_iter` 需要是可变的：在迭代器上调用 `next` 方法改变了迭代器中用来记录序列位置的状态。换句话说，代码 **消费**（consume）了，或使用了迭代器。每一个 `next` 调用都会从迭代器中消费一个项。使用 `for` 循环时无需使 `v1_iter` 可变因为 `for` 循环会获取 `v1_iter` 的所有权并在后台使 `v1_iter` 可变。
 
 另外需要注意到从 `next` 调用中得到的值是 vector 的不可变引用。`iter` 方法生成一个不可变引用的迭代器。如果我们需要一个获取 `v1` 所有权并返回拥有所有权的迭代器，则可以调用 `into_iter` 而不是 `iter`。类似的，如果我们希望迭代可变引用，则可以调用 `iter_mut` 而不是 `iter`。
 
-### 消费迭代器的方法
+## 消费迭代器的方法
 
 `Iterator` trait 有一系列不同的由标准库提供默认实现的方法；你可以在 `Iterator` trait 的标准库 API 文档中找到所有这些方法。一些方法在其定义中调用了 `next` 方法，这也就是为什么在实现 `Iterator` trait 时要求实现 `next` 方法的原因。
 
@@ -69,7 +68,7 @@ pub trait Iterator {
 
 调用 `sum` 之后不再允许使用 `v1_iter` 因为调用 `sum` 时它会获取迭代器的所有权。
 
-### 产生其他迭代器的方法
+## 产生其他迭代器的方法
 
 `Iterator` trait 中定义了另一类方法，被称为 **迭代器适配器**（*iterator adaptors*），他们允许我们将当前迭代器变为不同类型的迭代器。可以链式调用多个迭代器适配器。不过因为所有的迭代器都是惰性的，必须调用一个消费适配器方法以便获取迭代器适配器调用的结果。
 
@@ -99,7 +98,7 @@ pub trait Iterator {
 
 因为 `map` 获取一个闭包，可以指定任何希望在遍历的每个元素上执行的操作。这是一个展示如何使用闭包来自定义行为同时又复用 `Iterator` trait 提供的迭代行为的绝佳例子。
 
-### 使用闭包获取环境
+## 使用闭包获取环境
 
 现在我们介绍了迭代器，让我们展示一个通过使用 `filter` 迭代器适配器和捕获环境的闭包的常规用例。迭代器的 `filter` 方法获取一个使用迭代器的每一个项并返回布尔值的闭包。如果闭包返回 `true`，其值将会包含在 `filter` 提供的新迭代器中。如果闭包返回 `false`，其值不会包含在结果迭代器中。
 
@@ -119,7 +118,7 @@ pub trait Iterator {
 
 这个测试展示当调用 `shoes_in_my_size` 时，我们只会得到与指定值相同大小的鞋子。
 
-### 实现 `Iterator` trait 来创建自定义迭代器
+## 实现 `Iterator` trait 来创建自定义迭代器
 
 我们已经展示了可以通过在 vector 上调用 `iter`、`into_iter` 或 `iter_mut` 来创建一个迭代器。也可以用标准库中其他的集合类型创建迭代器，比如哈希 map。另外，可以实现 `Iterator` trait 来创建任何我们希望的迭代器。正如之前提到的，定义中唯一要求提供的方法就是 `next` 方法。一旦定义了它，就可以使用所有其他由 `Iterator` trait 提供的拥有默认实现的方法来创建自定义迭代器了！
 
@@ -147,7 +146,7 @@ pub trait Iterator {
 
 我们希望迭代器对其内部状态加一，这也就是为何将 `count` 初始化为 0：我们希望迭代器首先返回 1。如果 `count` 值小于 6，`next` 会返回封装在 `Some` 中的当前值，不过如果 `count` 大于或等于 6，迭代器会返回 `None`。
 
-#### 使用 `Counter` 迭代器的 `next` 方法
+### 使用 `Counter` 迭代器的 `next` 方法
 
 一旦实现了 `Iterator` trait，我们就有了一个迭代器！示例 13-22 展示了一个测试用来演示使用 `Counter` 结构体的迭代器功能，通过直接调用 `next` 方法，正如示例 13-15 中从 vector 创建的迭代器那样：
 
@@ -159,7 +158,7 @@ pub trait Iterator {
 
 这个测试在 `counter` 变量中新建了一个 `Counter` 实例并接着反复调用 `next` 方法，来验证我们实现的行为符合这个迭代器返回从 1 到 5 的值的预期。
 
-#### 使用自定义迭代器中其他 `Iterator` trait 方法
+### 使用自定义迭代器中其他 `Iterator` trait 方法
 
 通过定义 `next` 方法实现 `Iterator` trait，我们现在就可以使用任何标准库定义的拥有默认实现的 `Iterator` trait 方法了，因为他们都使用了 `next` 方法的功能。
 

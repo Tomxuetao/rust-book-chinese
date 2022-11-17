@@ -1,4 +1,4 @@
-## 附录 G：Rust 是如何开发的与 “Nightly Rust”
+# 附录 G：Rust 是如何开发的与 “Nightly Rust”
 
 > [appendix-07-nightly-rust.md](https://github.com/rust-lang/book/blob/main/src/appendix-07-nightly-rust.md)
 > <br />
@@ -6,13 +6,13 @@
 
 本附录介绍 Rust 是如何开发的以及这如何影响作为 Rust 开发者的你。
 
-### 无停滞稳定
+## 无停滞稳定
 
 作为一个语言，Rust **十分** 注重代码的稳定性。我们希望 Rust 成为你代码坚实的基础，假如持续地有东西在变，这个希望就实现不了。但与此同时，如果不能实验新功能的话，在发布之前我们又无法发现其中重大的缺陷，而一旦发布便再也没有修改的机会了。
 
 对于这个问题我们的解决方案被称为 “无停滞稳定”（“stability without stagnation”），其指导性原则是：无需担心升级到最新的稳定版 Rust。每次升级应该是无痛的，并应带来新功能，更少的 bug 和更快的编译速度。
 
-### Choo, Choo! ~~（开车啦，逃）~~ 发布通道和发布时刻表（Riding the Trains）
+## Choo, Choo! ~~（开车啦，逃）~~ 发布通道和发布时刻表（Riding the Trains）
 
 Rust 开发运行于一个 ~~车次表~~ **发布时刻表**（_train schedule_）之上。也就是说，所有的开发工作都位于 Rust 仓库的 `master` 分支。发布采用 software release train 模型，其被用于思科 IOS 等其它软件项目。Rust 有三个 **发布通道**（_release channel_）：
 
@@ -78,7 +78,7 @@ Rust 每 6 周发布一个版本，如时钟般准确。如果你知道了某个
 
 多亏了这个过程，你总是可以切换到下一版本的 Rust 并验证是否可以轻易的升级：如果 beta 版不能如期工作，你可以向 Rust 团队报告并在发布稳定版之前得到修复！beta 版造成的破坏是非常少见的，不过 `rustc` 也不过是一个软件，可能会存在 bug。
 
-### 不稳定功能
+## 不稳定功能
 
 这个发布模型中另一个值得注意的地方：不稳定功能（unstable features）。Rust 使用一个被称为 “功能标记”（“feature flags”）的技术来确定给定版本的某个功能是否启用。如果新功能正在积极地开发中，其提交到了 `master`，因此会出现在 nightly 版中，不过会位于一个 **功能标记** 之后。作为用户，如果你希望尝试这个正在开发的功能，则可以在源码中使用合适的标记来开启，不过必须使用 nightly 版。
 
@@ -86,7 +86,7 @@ Rust 每 6 周发布一个版本，如时钟般准确。如果你知道了某个
 
 本书只包含稳定的功能，因为还在开发中的功能仍可能改变，当其进入稳定版时肯定会与编写本书的时候有所不同。你可以在网上获取 nightly 版的文档。
 
-### Rustup 和 Rust Nightly 的职责
+## Rustup 和 Rust Nightly 的职责
 
 Rustup 使得改变不同发布通道的 Rust 更为简单，其在全局或分项目的层次工作。其默认会安装稳定版 Rust。例如为了安装 nightly：
 
@@ -112,7 +112,7 @@ $ rustup override set nightly
 
 现在，每次在 _~/projects/needs-nightly_ 调用 `rustc` 或 `cargo`，`rustup` 会确保使用 nightly 版 Rust。在你有很多 Rust 项目时大有裨益！
 
-### RFC 过程和团队
+## RFC 过程和团队
 
 那么你如何了解这些新功能呢？Rust 开发模式遵循一个 **Request For Comments (RFC) 过程**。如果你希望改进 Rust，可以编写一个提议，也就是 RFC。
 

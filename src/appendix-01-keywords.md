@@ -1,4 +1,4 @@
-## 附录 A：关键字
+# 附录 A：关键字
 
 > [appendix-01-keywords.md](https://github.com/rust-lang/book/blob/main/src/appendix-01-keywords.md)
 > <br>
@@ -9,7 +9,7 @@
 
 [raw-identifiers]: #原始标识符
 
-### 目前正在使用的关键字
+## 目前正在使用的关键字
 
 如下关键字目前有对应其描述的功能。
 
@@ -55,7 +55,7 @@
 
 [union]: https://doc.rust-lang.org/reference/items/unions.html
 
-### 保留做将来使用的关键字
+## 保留做将来使用的关键字
 
 如下关键字没有任何功能，不过由 Rust 保留以备将来的应用。
 
@@ -73,7 +73,7 @@
 * `virtual`
 * `yield`
 
-### 原始标识符
+## 原始标识符
 
 原始标识符（Raw identifiers）允许你使用通常不能使用的关键字，其带有 `r#` 前缀。
 

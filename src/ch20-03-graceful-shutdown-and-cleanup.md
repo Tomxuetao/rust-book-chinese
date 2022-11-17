@@ -1,4 +1,4 @@
-## 优雅停机与清理
+# 优雅停机与清理
 
 > [ch20-03-graceful-shutdown-and-cleanup.md](https://github.com/rust-lang/book/blob/main/src/ch20-03-graceful-shutdown-and-cleanup.md)
 > <br>
@@ -8,7 +8,7 @@
 
 现在我们要为 `ThreadPool` 实现 `Drop` trait 对线程池中的每一个线程调用 `join`，这样这些线程将会执行完他们的请求。接着会为 `ThreadPool` 实现一个告诉线程他们应该停止接收新请求并结束的方式。为了实践这些代码，修改 server 在优雅停机（graceful shutdown）之前只接受两个请求。
 
-### 为 `ThreadPool` 实现 `Drop` Trait
+## 为 `ThreadPool` 实现 `Drop` Trait
 
 现在开始为线程池实现 `Drop`。当线程池被丢弃时，应该 join 所有线程以确保他们完成其操作。示例 20-22 展示了 `Drop` 实现的第一次尝试；这些代码还不能够编译：
 
@@ -50,7 +50,7 @@
 
 如第十七章我们见过的，`Option` 上的 `take` 方法会取出 `Some` 而留下 `None`。使用 `if let` 解构 `Some` 并得到线程，接着在线程上调用 `join`。如果 worker 的线程已然是 `None`，就知道此时这个 worker 已经清理了其线程所以无需做任何操作。
 
-### 向线程发送信号使其停止接收任务
+## 向线程发送信号使其停止接收任务
 
 有了所有这些修改，代码就能编译且没有任何警告。不过也有坏消息，这些代码还不能以我们期望的方式运行。问题的关键在于 `Worker` 中分配的线程所运行的闭包中的逻辑：调用 `join` 并不会关闭线程，因为他们一直 `loop` 来寻找任务。如果采用这个实现来尝试丢弃 `ThreadPool` ，则主线程会永远阻塞在等待第一个线程结束上。
 

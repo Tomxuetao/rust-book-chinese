@@ -1,4 +1,4 @@
-## 附录 F：本书译本
+# 附录 F：本书译本
 
 > [appendix-06-translation.md](https://github.com/rust-lang/book/blob/main/src/appendix-06-translation.md)
 > <br />

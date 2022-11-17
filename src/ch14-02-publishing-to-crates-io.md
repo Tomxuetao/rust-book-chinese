@@ -1,4 +1,4 @@
-## 将 crate 发布到 Crates.io
+# 将 crate 发布到 Crates.io
 
 > [ch14-02-publishing-to-crates-io.md](https://github.com/rust-lang/book/blob/main/src/ch14-02-publishing-to-crates-io.md) <br>
 > commit 7ddc28cfe0bfa6c531a6475c7fa41dfa66e8943c
@@ -7,7 +7,7 @@
 
 Rust 和 Cargo 有一些帮助他人更方便找到和使用你发布的包的功能。我们将介绍一些这样的功能，接着讲到如何发布一个包。
 
-### 编写有用的文档注释
+## 编写有用的文档注释
 
 准确的包文档有助于其他用户理解如何以及何时使用他们，所以花一些时间编写文档是值得的。第三章中我们讨论了如何使用两斜杠 `//` 注释 Rust 代码。Rust 也有特定的用于文档的注释类型，通常被称为 **文档注释**（_documentation comments_），他们会生成 HTML 文档。这些 HTML 展示公有 API 文档注释的内容，他们意在让对库感兴趣的程序员理解如何 **使用** 这个 crate，而不是它是如何被 **实现** 的。
 
@@ -27,7 +27,7 @@ Rust 和 Cargo 有一些帮助他人更方便找到和使用你发布的包的�
 
 <span class="caption">图 14-1：`add_one` 函数的文档注释 HTML</span>
 
-#### 常用（文档注释）部分
+### 常用（文档注释）部分
 
 示例 14-1 中使用了 `# Examples` Markdown 标题在 HTML 中创建了一个以 “Examples” 为标题的部分。其他一些 crate 作者经常在文档注释中使用的部分有：
 
@@ -37,7 +37,7 @@ Rust 和 Cargo 有一些帮助他人更方便找到和使用你发布的包的�
 
 大部分文档注释不需要所有这些部分，不过这是一个提醒你检查调用你代码的人有兴趣了解的内容的列表。
 
-#### 文档注释作为测试
+### 文档注释作为测试
 
 在文档注释中增加示例代码块是一个清楚的表明如何使用库的方法，这么做还有一个额外的好处：`cargo test` 也会像测试那样运行文档中的示例代码！没有什么比有例子的文档更好的了，但最糟糕的莫过于写完文档后改动了代码，而导致例子不能正常工作。尝试 `cargo test` 运行像示例 14-1 中 `add_one` 函数的文档；应该在测试结果中看到像这样的部分：
 
@@ -52,7 +52,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 现在尝试改变函数或例子来使例子中的 `assert_eq!` 产生 panic。再次运行 `cargo test`，你将会看到文档测试捕获到了例子与代码不再同步！
 
-#### 注释包含项的结构
+### 注释包含项的结构
 
 还有另一种风格的文档注释，`//!`，这为包含注释的项，而不是位于注释之后的项增加文档。这通常用于 crate 根文件（通常是 _src/lib.rs_）或模块的根文件为 crate 或模块整体提供文档。
 
@@ -74,7 +74,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 位于项之中的文档注释对于描述 crate 和模块特别有用。使用他们描述其容器整体的目的来帮助 crate 用户理解你的代码组织。
 
-### 使用 `pub use` 导出合适的公有 API
+## 使用 `pub use` 导出合适的公有 API
 
 第七章介绍了如何使用 `mod` 关键字来将代码组织进模块中，如何使用 `pub` 关键字将项变为公有，和如何使用 `use` 关键字将项引入作用域。然而你开发时候使用的文件架构可能并不方便用户。你的结构可能是一个包含多个层级的分层结构，不过这对于用户来说并不方便。这是因为想要使用被定义在很深层级中的类型的人可能很难发现这些类型的存在。他们也可能会厌烦要使用 `use my_crate::some_module::another_module::UsefulType;` 而不是 `use my_crate::UsefulType;` 来使用类型。
 
@@ -85,7 +85,6 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 例如，假设我们创建了一个描述美术信息的库 `art`。这个库中包含了一个有两个枚举 `PrimaryColor` 和 `SecondaryColor` 的模块 `kinds`，以及一个包含函数 `mix` 的模块 `utils`，如示例 14-3 所示：
 
 <span class="filename">文件名: src/lib.rs</span>
-
 
 <<< @/listings/ch14-more-about-cargo/listing-14-03/src/lib.rs
 
@@ -135,7 +134,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 创建一个有用的公有 API 结构更像是一门艺术而非科学，你可以反复检视他们来找出最适合用户的 API。`pub use` 提供了解耦组织 crate 内部结构和与终端用户体现的灵活性。观察一些你所安装的 crate 的代码来看看其内部结构是否不同于公有 API。
 
-### 创建 Crates.io 账号
+## 创建 Crates.io 账号
 
 在你可以发布任何 crate 之前，需要在 [crates.io](https://crates.io)<!-- ignore --> 上注册账号并获取一个 API token。为此，访问位于 [crates.io](https://crates.io)<!-- ignore --> 的首页并使用 GitHub 账号登录。（目前 GitHub 账号是必须的，不过将来该网站可能会支持其他创建账号的方法）一旦登录之后，查看位于 [https://crates.io/me/](https://crates.io/me/)<!-- ignore --> 的账户设置页面并获取 API token。接着使用该 API token 运行 `cargo login` 命令，像这样：
 
@@ -145,7 +144,7 @@ $ cargo login abcdefghijklmnopqrstuvwxyz012345
 
 这个命令会通知 Cargo 你的 API token 并将其储存在本地的 _~/.cargo/credentials_ 文件中。注意这个 token 是一个 **秘密**（**secret**）且不应该与其他人共享。如果因为任何原因与他人共享了这个信息，应该立即到 [crates.io](https://crates.io)<!-- ignore --> 重新生成这个 token。
 
-### 发布新 crate 之前
+## 发布新 crate 之前
 
 有了账号之后，比如说你已经有一个希望发布的 crate。在发布之前，你需要在 crate 的 _Cargo.toml_ 文件的 `[package]` 部分增加一些本 crate 的元信息（metadata）。
 
@@ -207,7 +206,7 @@ license = "MIT OR Apache-2.0"
 
 [Cargo 的文档](http://doc.rust-lang.org/cargo/) 描述了其他可以指定的元信息，他们可以帮助你的 crate 更容易被发现和使用！
 
-### 发布到 Crates.io
+## 发布到 Crates.io
 
 现在我们创建了一个账号，保存了 API token，为 crate 选择了一个名字，并指定了所需的元数据，你已经准备好发布了！发布 crate 会上传特定版本的 crate 到 [crates.io](https://crates.io)<!-- ignore --> 以供他人使用。
 
@@ -228,13 +227,13 @@ $ cargo publish
 
 恭喜！你现在向 Rust 社区分享了代码，而且任何人都可以轻松的将你的 crate 加入他们项目的依赖。
 
-### 发布现存 crate 的新版本
+## 发布现存 crate 的新版本
 
 当你修改了 crate 并准备好发布新版本时，改变 _Cargo.toml_ 中 `version` 所指定的值。请使用 [语义化版本规则][semver] 来根据修改的类型决定下一个版本号。接着运行 `cargo publish` 来上传新版本。
 
 [semver]: http://semver.org/
 
-### 使用 `cargo yank` 从 Crates.io 撤回版本
+## 使用 `cargo yank` 从 Crates.io 撤回版本
 
 虽然你不能删除之前版本的 crate，但是可以阻止任何将来的项目将他们加入到依赖中。这在某个版本因为这样或那样的原因被破坏的情况很有用。对于这种情况，Cargo 支持 **撤回**（_yanking_）某个版本。
 

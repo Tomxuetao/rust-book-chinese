@@ -1,4 +1,4 @@
-## 面向对象语言的特征
+# 面向对象语言的特征
 
 > [ch17-01-what-is-oo.md](https://github.com/rust-lang/book/blob/main/src/ch17-01-what-is-oo.md)
 > <br>
@@ -6,7 +6,7 @@
 
 关于一个语言被称为面向对象所需的功能，在编程社区内并未达成一致意见。Rust 被很多不同的编程范式影响，包括面向对象编程；比如第十三章提到了来自函数式编程的特性。面向对象编程语言所共享的一些特性往往是对象、封装和继承。让我们看一下这每一个概念的含义以及 Rust 是否支持他们。
 
-### 对象包含数据和行为
+## 对象包含数据和行为
 
 由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides（Addison-Wesley Professional, 1994）编写的书 *Design Patterns: Elements of Reusable Object-Oriented Software* 被俗称为 *The Gang of Four* (字面意思为 “四人帮”)，它是面向对象编程模式的目录。它这样定义面向对象编程：
 
@@ -18,7 +18,7 @@
 
 在这个定义下，Rust 是面向对象的：结构体和枚举包含数据而 `impl` 块提供了在结构体和枚举之上的方法。虽然带有方法的结构体和枚举并不被 **称为** 对象，但是他们提供了与对象相同的功能，参考 *The Gang of Four* 中对象的定义。
 
-### 封装隐藏了实现细节
+## 封装隐藏了实现细节
 
 另一个通常与面向对象编程相关的方面是 **封装**（*encapsulation*）的思想：对象的实现细节不能被使用对象的代码获取到。所以唯一与对象交互的方式是通过对象提供的公有 API；使用对象的代码无法深入到对象内部并直接改变数据或者行为。封装使得改变和重构对象的内部时无需改变使用对象的代码。
 

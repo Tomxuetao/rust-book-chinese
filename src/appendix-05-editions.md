@@ -1,4 +1,4 @@
-## 附录 E：版本
+# 附录 E：版本
 
 > [appendix-05-editions.md](https://github.com/rust-lang/book/blob/main/src/appendix-05-editions.md)
 > <br />

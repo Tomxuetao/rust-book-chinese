@@ -1,4 +1,4 @@
-## 处理环境变量
+# 处理环境变量
 
 > [ch12-05-working-with-environment-variables.md](https://github.com/rust-lang/book/blob/main/src/ch12-05-working-with-environment-variables.md)
 > <br>
@@ -6,7 +6,7 @@
 
 我们将增加一个额外的功能来改进 `minigrep`：用户可以通过设置环境变量来设置搜索是否是大小写敏感的 。当然，我们也可以将其设计为一个命令行参数并要求用户每次需要时都加上它，不过在这里我们将使用环境变量。这允许用户设置环境变量一次之后在整个终端会话中所有的搜索都将是大小写不敏感的。
 
-### 编写一个大小写不敏感 `search` 函数的失败测试
+## 编写一个大小写不敏感 `search` 函数的失败测试
 
 我们希望增加一个新函数 `search_case_insensitive`，并将会在设置了环境变量时调用它。这里将继续遵循 TDD 过程，其第一步是再次编写一个失败测试。我们将为新的大小写不敏感搜索函数新增一个测试函数，并将老的测试函数从 `one_result` 改名为 `case_sensitive` 来更清楚的表明这两个测试的区别，如示例 12-20 所示：
 
@@ -20,7 +20,7 @@
 
 大小写 **不敏感** 搜索的新测试使用 `"rUsT"` 作为其查询字符串。在我们将要增加的 `search_case_insensitive` 函数中，`"rUsT"` 查询应该包含带有一个大写 R 的 `"Rust:"` 还有 `"Trust me."` 这两行，即便他们与查询的大小写都不同。这个测试现在不能编译，因为还没有定义 `search_case_insensitive` 函数。请随意增加一个总是返回空 vector 的骨架实现，正如示例 12-16 中 `search` 函数为了使测试通过编译并失败时所做的那样。
 
-### 实现 `search_case_insensitive` 函数
+## 实现 `search_case_insensitive` 函数
 
 `search_case_insensitive` 函数，如示例 12-21 所示，将与 `search` 函数基本相同。唯一的区别是它会将 `query` 变量和每一 `line` 都变为小写，这样不管输入参数是大写还是小写，在检查该行是否包含查询字符串时都会是小写。
 

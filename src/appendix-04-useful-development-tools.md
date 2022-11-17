@@ -1,4 +1,4 @@
-## 附录 D：实用开发工具
+# 附录 D：实用开发工具
 
 > [appendix-04-useful-development-tools.md](https://github.com/rust-lang/book/blob/main/src/appendix-04-useful-development-tools.md)
 > <br />
@@ -6,7 +6,7 @@
 
 本附录，我们将讨论 Rust 项目提供的用于开发 Rust 代码的工具。
 
-### 通过 `rustfmt` 自动格式化
+## 通过 `rustfmt` 自动格式化
 
 `rustfmt` 工具根据社区代码风格格式化代码。很多项目使用 `rustfmt` 来避免编写 Rust 风格的争论：所有人都用这个工具格式化代码！
 
@@ -26,7 +26,7 @@ $ cargo fmt
 
 [rustfmt]: https://github.com/rust-lang/rustfmt
 
-### 通过 `rustfix` 修复代码
+## 通过 `rustfix` 修复代码
 
 如果你编写过 Rust 代码，那么你可能见过那些有很明显修复方式的编译器警告。例如，考虑如下代码：
 

@@ -1,4 +1,4 @@
-## 改进 I/O 项目
+# 改进 I/O 项目
 
 > [ch13-03-improving-our-io-project.md](https://github.com/rust-lang/book/blob/main/src/ch13-03-improving-our-io-project.md)
 > <br>
@@ -6,7 +6,7 @@
 
 有了这些关于迭代器的新知识，我们可以使用迭代器来改进第十二章中 I/O 项目的实现来使得代码更简洁明了。让我们看看迭代器如何能够改进 `Config::new` 函数和 `search` 函数的实现。
 
-### 使用迭代器并去掉 `clone`
+## 使用迭代器并去掉 `clone`
 
 在示例 12-6 中，我们增加了一些代码获取一个 `String` slice 并创建一个 `Config` 结构体的实例，他们索引 slice 中的值并克隆这些值以便 `Config` 结构体可以拥有这些值。在示例 13-24 中重现了第十二章结尾示例 12-23 中 `Config::new` 函数的实现：
 
@@ -24,7 +24,7 @@
 
 一旦 `Config::new` 获取了迭代器的所有权并不再使用借用的索引操作，就可以将迭代器中的 `String` 值移动到 `Config` 中，而不是调用 `clone` 分配新的空间。
 
-#### 直接使用 `env::args` 返回的迭代器
+### 直接使用 `env::args` 返回的迭代器
 
 打开 I/O 项目的 *src/main.rs* 文件，它看起来应该像这样：
 
@@ -52,7 +52,7 @@
 
 `env::args` 函数的标准库文档显示，它返回的迭代器的类型为 `std::env::Args`。我们已经更新了 `Config :: new` 函数的签名，因此参数 `args` 的类型为 `std::env::Args` 而不是 `&[String]`。因为我们拥有 `args` 的所有权，并且将通过对其进行迭代来改变 `args` ，所以我们可以将 `mut` 关键字添加到 `args` 参数的规范中以使其可变。
 
-#### 使用 `Iterator` trait 代替索引
+### 使用 `Iterator` trait 代替索引
 
 接下来，我们将修改 `Config::new` 的内容。标准库文档还提到 `std::env::Args` 实现了 `Iterator` trait，因此我们知道可以对其调用 `next` 方法！示例 13-27 更新了示例 12-23 中的代码，以使用 `next` 方法：
 
@@ -64,7 +64,7 @@
 
 请记住 `env::args` 返回值的第一个值是程序的名称。我们希望忽略它并获取下一个值，所以首先调用 `next` 并不对返回值做任何操作。之后对希望放入 `Config` 中字段 `query` 调用 `next`。如果 `next` 返回 `Some`，使用 `match` 来提取其值。如果它返回 `None`，则意味着没有提供足够的参数并通过 `Err` 值提早返回。对 `filename` 值进行同样的操作。
 
-### 使用迭代器适配器来使代码更简明
+## 使用迭代器适配器来使代码更简明
 
 I/O 项目中其他可以利用迭代器的地方是 `search` 函数，示例 13-28 中重现了第十二章结尾示例 12-19 中此函数的定义：
 

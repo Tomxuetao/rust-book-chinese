@@ -1,4 +1,4 @@
-## 安装
+# 安装
 
 > [ch01-01-installation.md](https://github.com/rust-lang/book/blob/main/src/ch01-01-installation.md) <br>
 > commit 1e17bf15b12f6f7b8d1711dbd343ef8993f64baa
@@ -13,7 +13,7 @@
 >
 > 本章和全书中，我们会展示一些在终端中使用的命令。所有需要输入到终端的行都以 `$` 开头。你不需要输入`$`字符；这里显示的`$`字符表示命令行提示符，仅用于提示每行命令的起点。不以 `$` 起始的行通常展示前一个命令的输出。另外，PowerShell 专用的示例会采用 `>` 而不是 `$`。
 
-### 在 Linux 或 macOS 上安装 `rustup`
+## 在 Linux 或 macOS 上安装 `rustup`
 
 如果你使用 Linux 或 macOS，打开终端并输入如下命令：
 
@@ -37,7 +37,7 @@ $ xcode-select --install
 
 Linux 用户通常需要根据发行版（distribution）文档安装 GCC 或 Clang。比如，如果你使用 Ubuntu，可以安装 `build-essential` 包。
 
-### 在 Windows 上安装 `rustup`
+## 在 Windows 上安装 `rustup`
 
 在 Windows 上，前往 [https://www.rust-lang.org/install.html][install] 并按照说明安装 Rust。在安装过程的某个步骤，你会收到一个信息说明为什么需要安装 Visual Studio 2013 或其更新版本的 MSVC 构建工具。要获取构建工具，你需要安装 [Visual Studio 2022][visualstudio]。当被问及需要安装什么工作负载（Workload）的时候，请确保勾选了以下内容：
 
@@ -47,7 +47,7 @@ Linux 用户通常需要根据发行版（distribution）文档安装 GCC 或 Cl
 
 本书的余下部分会使用能同时运行于 *cmd.exe* 和 PowerShell 的命令。如果存在特定差异，我们会解释使用哪一个。
 
-### 检查安装是否正确（Troubleshooting）
+## 检查安装是否正确（Troubleshooting）
 
 要检查是否正确安装了 Rust，打开命令行并输入：
 
@@ -103,7 +103,7 @@ $ rustup update
 $ rustup self uninstall
 ```
 
-### 本地文档
+## 本地文档
 
 安装程序也自带一份文档的本地拷贝，可以离线阅读。运行 `rustup doc` 在浏览器中查看本地文档。
 

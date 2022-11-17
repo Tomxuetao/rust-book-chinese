@@ -1,4 +1,4 @@
-## 枚举的定义
+# 枚举的定义
 
 > [ch06-01-defining-an-enum.md](https://github.com/rust-lang/book/blob/main/src/ch06-01-defining-an-enum.md)
 > <br>
@@ -16,7 +16,7 @@
 
 现在 `IpAddrKind` 就是一个可以在代码中使用的自定义数据类型了。
 
-### 枚举值
+## 枚举值
 
 可以像这样创建 `IpAddrKind` 两个不同成员的实例：
 
@@ -96,7 +96,7 @@ enum IpAddr {
 
 让我们看看标准库中的另一个非常常见且实用的枚举：`Option`。
 
-### `Option` 枚举和其相对于空值的优势
+## `Option` 枚举和其相对于空值的优势
 
 这一部分会分析一个 `Option` 的案例，`Option` 是标准库定义的另一个枚举。`Option` 类型应用广泛因为它编码了一个非常普遍的场景，即一个值要么有值要么没值。
 

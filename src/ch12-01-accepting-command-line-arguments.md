@@ -1,4 +1,4 @@
-### 接受命令行参数
+# 接受命令行参数
 
 > [ch12-01-accepting-command-line-arguments.md](https://github.com/rust-lang/book/blob/main/src/ch12-01-accepting-command-line-arguments.md)
 > <br>
@@ -20,7 +20,7 @@ $ cargo run searchstring example-filename.txt
 
 现在 `cargo new` 生成的程序忽略任何传递给它的参数。[Crates.io](https://crates.io/) 上有一些现成的库可以帮助我们接受命令行参数，不过我们正在学习这些内容，让我们自己来实现一个。
 
-### 读取参数值
+## 读取参数值
 
 为了确保 `minigrep` 能够获取传递给它的命令行参数的值，我们需要一个 Rust 标准库提供的函数，也就是 `std::env::args`。这个函数返回一个传递给程序的命令行参数的 **迭代器**（*iterator*）。我们会在 [第十三章][ch13] 全面的介绍它们。但是现在只需理解迭代器的两个细节：迭代器生成一系列的值，可以在迭代器上调用 `collect` 方法将其转换为一个集合，比如包含所有迭代器产生元素的 vector。
 
@@ -48,7 +48,7 @@ $ cargo run searchstring example-filename.txt
 
 注意 vector 的第一个值是 `"target/debug/minigrep"`，它是我们二进制文件的名称。这与 C 中的参数列表的行为相匹配，让程序使用在执行时调用它们的名称。如果要在消息中打印它或者根据用于调用程序的命令行别名更改程序的行为，通常可以方便地访问程序名称，不过考虑到本章的目的，我们将忽略它并只保存所需的两个参数。
 
-### 将参数值保存进变量
+## 将参数值保存进变量
 
 打印出参数 vector 中的值展示了程序可以访问指定为命令行参数的值。现在需要将这两个参数的值保存进变量这样就可以在程序的余下部分使用这些值了。让我们如示例 12-2 这样做：
 

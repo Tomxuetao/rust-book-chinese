@@ -1,12 +1,12 @@
-## 高级 trait
+# 高级 trait
 
-> [ch19-03-advanced-traits.md](https://github.com/rust-lang/book/blob/main/src/ch19-03-advanced-traits.md)
+> [ch19-02-advanced-traits.md](https://github.com/rust-lang/book/blob/main/src/ch19-02-advanced-traits.md)
 > <br>
 > commit 81d05c9a6d06d79f2a85c8ea184f41dc82532d98
 
 第十章 [“trait：定义共享的行为”][traits-defining-shared-behavior] 部分，我们第一次涉及到了 trait，不过就像生命周期一样，我们并没有覆盖一些较为高级的细节。现在我们更加了解 Rust 了，可以深入理解其本质了。
 
-### 关联类型在 trait 定义中指定占位符类型
+## 关联类型在 trait 定义中指定占位符类型
 
 **关联类型**（*associated types*）是一个将类型占位符与 trait 相关联的方式，这样 trait 的方法签名中就可以使用这些占位符类型。trait 的实现者会针对特定的实现在这个类型的位置指定相应的具体类型。如此可以定义一个使用多种类型的 trait，直到实现此 trait 时都无需知道这些类型具体是什么。
 
@@ -38,7 +38,7 @@
 
 通过关联类型，则无需标注类型，因为不能多次实现这个 trait。对于示例 19-12 使用关联类型的定义，我们只能选择一次 `Item` 会是什么类型，因为只能有一个 `impl Iterator for Counter`。当调用 `Counter` 的 `next` 时不必每次指定我们需要 `u32` 值的迭代器。
 
-### 默认泛型类型参数和运算符重载
+## 默认泛型类型参数和运算符重载
 
 当使用泛型类型参数时，可以为泛型指定一个默认的具体类型。如果默认类型就足够的话，这消除了为具体类型实现 trait 的需要。为泛型类型指定默认类型的语法是在声明泛型类型时使用 `<PlaceholderType=ConcreteType>`。
 
@@ -87,7 +87,7 @@ trait Add<Rhs=Self> {
 
 第一个目的是相似的，但过程是反过来的：如果需要为现有 trait 增加类型参数，为其提供一个默认类型将允许我们在不破坏现有实现代码的基础上扩展 trait 的功能。
 
-### 完全限定语法与消歧义：调用相同名称的方法
+## 完全限定语法与消歧义：调用相同名称的方法
 
 Rust 既不能避免一个 trait 与另一个 trait 拥有相同名称的方法，也不能阻止为同一类型同时实现这两个 trait。甚至直接在类型上实现开始已经有的同名方法也是可能的！
 
@@ -171,7 +171,7 @@ Rust 既不能避免一个 trait 与另一个 trait 拥有相同名称的方法�
 
 对于关联函数，其没有一个 `receiver`，故只会有其他参数的列表。可以选择在任何函数或方法调用处使用完全限定语法。然而，允许省略任何 Rust 能够从程序中的其他信息中计算出的部分。只有当存在多个同名实现而 Rust 需要帮助以便知道我们希望调用哪个实现时，才需要使用这个较为冗长的语法。
 
-### 父 trait 用于在另一个 trait 中使用某 trait 的功能
+## 父 trait 用于在另一个 trait 中使用某 trait 的功能
 
 有时我们可能会需要某个 trait 使用另一个 trait 的功能。在这种情况下，需要能够依赖相关的 trait 也被实现。这个所需的 trait 是我们实现的 trait 的 **父（超） trait**（*supertrait*）。
 
@@ -213,7 +213,7 @@ Rust 既不能避免一个 trait 与另一个 trait 拥有相同名称的方法�
 
 那么在 `Point` 上实现 `OutlinePrint` trait 将能成功编译，并可以在 `Point` 实例上调用 `outline_print` 来显示位于星号框中的点的值。
 
-### newtype 模式用以在外部类型上实现外部 trait
+## newtype 模式用以在外部类型上实现外部 trait
 
 在第十章的 [“为类型实现 trait”][implementing-a-trait-on-a-type] 部分，我们提到了孤儿规则（orphan rule），它说明只要 trait 或类型对于当前 crate 是本地的话就可以在此类型上实现该 trait。一个绕开这个限制的方法是使用 **newtype 模式**（*newtype pattern*），它涉及到在一个元组结构体（第五章 [“用没有命名字段的元组结构体来创建不同的类型”][tuple-structs] 部分介绍了元组结构体）中创建一个新类型。这个元组结构体带有一个字段作为希望实现 trait 的类型的简单封装。接着这个封装类型对于 crate 是本地的，这样就可以在这个封装上实现 trait。*Newtype* 是一个源自 ~~（U.C.0079，逃）~~ Haskell 编程语言的概念。使用这个模式没有运行时性能惩罚，这个封装类型在编译时就被省略了。
 
@@ -231,7 +231,7 @@ Rust 既不能避免一个 trait 与另一个 trait 拥有相同名称的方法�
 
 上面便是 newtype 模式如何与 trait 结合使用的；还有一个不涉及 trait 的实用模式。现在让我们将话题的焦点转移到一些与 Rust 类型系统交互的高级方法上来吧。
 
-[newtype]: ch19-04-advanced-types.html#为了类型安全和抽象而使用-newtype-模式
+[newtype]: ch19-03-advanced-types.html#为了类型安全和抽象而使用-newtype-模式
 [implementing-a-trait-on-a-type]: ch10-02-traits.html#为类型实现-trait
 [the-iterator-trait-and-the-next-method]: ch13-02-iterators.html#iterator-trait-和-next-方法
 [traits-defining-shared-behavior]: ch10-02-traits.html#trait定义共享的行为

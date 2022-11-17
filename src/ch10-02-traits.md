@@ -1,4 +1,4 @@
-## Trait：定义共同行为
+# Trait：定义共同行为
 
 > [ch10-02-traits.md](https://github.com/rust-lang/book/blob/main/src/ch10-02-traits.md)
 > <br>
@@ -8,7 +8,7 @@
 
 > 注意：*trait* 类似于其他语言中的常被称为 **接口**（*interfaces*）的功能，虽然有一些不同。
 
-### 定义 trait
+## 定义 trait
 
 一个类型的行为由其可供调用的方法构成。如果可以对不同类型调用相同的方法的话，这些类型就可以共享相同的行为了。trait 定义是一种将方法签名组合起来的方法，目的是定义一个实现某些目的所必需的行为的集合。
 
@@ -28,7 +28,7 @@
 
 trait 体中可以有多个方法：一行一个方法签名且都以分号结尾。
 
-### 为类型实现 trait
+## 为类型实现 trait
 
 现在我们定义了 `Summary` trait 的签名，接着就可以在多媒体聚合库中实现这个类型了。示例 10-13 中展示了 `NewsArticle` 结构体上 `Summary` trait 的一个实现，它使用标题、作者和创建的位置作为 `summarize` 的返回值。对于 `Tweet` 结构体，我们选择将 `summarize` 定义为用户名后跟推文的全部文本作为返回值，并假设推文内容已经被限制为 280 字符以内。
 
@@ -50,7 +50,7 @@ trait 体中可以有多个方法：一行一个方法签名且都以分号结�
 
 但是不能为外部类型实现外部 trait。例如，不能在 `aggregator` crate 中为 `Vec<T>` 实现 `Display` trait。这是因为 `Display` 和 `Vec<T>` 都定义于标准库中，它们并不位于 `aggregator` crate 本地作用域中。这个限制是被称为 **相干性**（*coherence*） 的程序属性的一部分，或者更具体的说是 **孤儿规则**（*orphan rule*），其得名于不存在父类型。这条规则确保了其他人编写的代码不会破坏你代码，反之亦然。没有这条规则的话，两个 crate 可以分别对相同类型实现相同的 trait，而 Rust 将无从得知应该使用哪一个实现。
 
-### 默认实现
+## 默认实现
 
 有时为 trait 中的某些或全部方法提供默认的行为，而不是在每个类型的每个实现中都定义自己的行为是很有用的。这样当为某个特定类型实现 trait 时，可以选择保留或重载每个方法的默认行为。
 
@@ -88,7 +88,7 @@ trait 体中可以有多个方法：一行一个方法签名且都以分号结�
 
 注意无法从相同方法的重载实现中调用默认方法。
 
-### trait 作为参数
+## trait 作为参数
 
 知道了如何定义 trait 和在类型上实现这些 trait 之后，我们可以探索一下如何使用 trait 来接受多种不同类型的参数。
 
@@ -98,7 +98,7 @@ trait 体中可以有多个方法：一行一个方法签名且都以分号结�
 
 对于 `item` 参数，我们指定了 `impl` 关键字和 trait 名称，而不是具体的类型。该参数支持任何实现了指定 trait 的类型。在 `notify` 函数体中，可以调用任何来自 `Summary` trait 的方法，比如 `summarize`。我们可以传递任何 `NewsArticle` 或 `Tweet` 的实例来调用 `notify`。任何用其它如 `String` 或 `i32` 的类型调用该函数的代码都不能编译，因为它们没有实现 `Summary`。
 
-#### Trait Bound 语法
+### Trait Bound 语法
 
 `impl Trait` 语法适用于直观的例子，它实际上是一种较长形式语法的语法糖。我们称为 *trait bound*，它看起来像：
 
@@ -124,7 +124,7 @@ pub fn notify<T: Summary>(item1: &T, item2: &T) {
 
 泛型 `T` 被指定为 `item1` 和 `item2` 的参数限制，如此传递给参数 `item1` 和 `item2` 值的具体类型必须一致。
 
-#### 通过 `+` 指定多个 trait bound
+### 通过 `+` 指定多个 trait bound
 
 如果 `notify` 需要显示 `item` 的格式化形式，同时也要使用 `summarize` 方法，那么 `item` 就需要同时实现两个不同的 trait：`Display` 和 `Summary`。这可以通过 `+` 语法实现：
 
@@ -140,7 +140,7 @@ pub fn notify<T: Summary + Display>(item: &T) {
 
 通过指定这两个 trait bound，`notify` 的函数体可以调用 `summarize` 并使用 `{}` 来格式化 `item`。
 
-#### 通过 `where` 简化 trait bound
+### 通过 `where` 简化 trait bound
 
 然而，使用过多的 trait bound 也有缺点。每个泛型有其自己的 trait bound，所以有多个泛型参数的函数在名称和参数列表之间会有很长的 trait bound 信息，这使得函数签名难以阅读。为此，Rust 有另一个在函数签名之后的 `where` 从句中指定 trait bound 的语法。所以除了这么写：
 
@@ -159,7 +159,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 
 这个函数签名就显得不那么杂乱，函数名、参数列表和返回值类型都离得很近，看起来跟没有那么多 trait bounds 的函数很像。
 
-### 返回实现了 trait 的类型
+## 返回实现了 trait 的类型
 
 也可以在返回值中使用 `impl Trait` 语法，来返回实现了某个 trait 的类型：
 
@@ -175,7 +175,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 
 这里尝试返回 `NewsArticle` 或 `Tweet`。这不能编译，因为 `impl Trait` 工作方式的限制。第十七章的 [“为使用不同类型的值而设计的 trait 对象”][using-trait-objects-that-allow-for-values-of-different-types] 部分会介绍如何编写这样一个函数。
 
-### 使用 trait bounds 来修复 `largest` 函数
+## 使用 trait bounds 来修复 `largest` 函数
 
 现在你知道了如何使用泛型参数 trait bound 来指定所需的行为。让我们回到实例 10-5 修复使用泛型类型参数的 `largest` 函数定义！回顾一下，最后尝试编译代码时出现的错误是：
 
@@ -203,7 +203,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 
 另一种 `largest` 的实现方式是返回在 slice 中 `T` 值的引用。如果我们将函数返回值从 `T` 改为 `&T` 并改变函数体使其能够返回一个引用，我们将不需要任何 `Clone` 或 `Copy` 的 trait bounds 而且也不会有任何的堆分配。尝试自己实现这种替代解决方式吧！如果你无法摆脱与生命周期有关的错误，请继续阅读：接下来的 “生命周期与引用有效性” 部分会详细的说明，不过生命周期对于解决这些挑战来说并不是必须的。
 
-### 使用 trait bound 有条件地实现方法
+## 使用 trait bound 有条件地实现方法
 
 通过使用带有 trait bound 的泛型参数的 `impl` 块，可以有条件地只为那些实现了特定 trait 的类型实现方法。例如，示例 10-16 中的类型 `Pair<T>` 总是实现了 `new` 方法并返回一个 `Pair<T>` 的实例（回忆一下第五章的 ["定义方法"][methods] 部分，`Self` 是一个 `impl` 块类型的类型别名（type alias），在这里是 `Pair<T>`）。不过在下一个 `impl` 块中，只有那些为 `T` 类型实现了 `PartialOrd` trait （来允许比较） **和** `Display` trait （来启用打印）的 `Pair<T>` 才会实现 `cmp_display` 方法：
 

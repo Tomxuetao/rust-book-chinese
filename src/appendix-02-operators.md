@@ -1,4 +1,4 @@
-## 附录 B：运算符与符号
+# 附录 B：运算符与符号
 
 > [appendix-02-operators.md](https://github.com/rust-lang/book/blob/main/src/appendix-02-operators.md)
 > <br />
@@ -6,7 +6,7 @@
 
 该附录包含了 Rust 语法的词汇表，包括运算符以及其他的符号，这些符号单独出现或出现在路径、泛型、trait bounds、宏、属性、注释、元组以及大括号上下文中。
 
-### 运算符
+## 运算符
 
 表 B-1 包含了 Rust 中的运算符、运算符如何出现在上下文中的示例、简短解释以及该运算符是否可重载。如果一个运算符是可重载的，则该运算符上用于重载的相关 trait 也会列出。
 
@@ -69,7 +69,7 @@
 | <code>&vert;&vert;</code> | <code>expr &vert;&vert; expr</code> | 短路（Short-circuiting）逻辑或 | |
 | `?` | `expr?` | 错误传播 | |
 
-### 非运算符符号
+## 非运算符符号
 
 下面的列表中包含了所有和运算符不一样功能的符号；也就是说，他们并不像函数调用或方法调用一样表现。
 

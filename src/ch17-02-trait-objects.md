@@ -1,4 +1,4 @@
-## 顾及不同类型值的 trait 对象
+# 顾及不同类型值的 trait 对象
 
 > [ch17-02-trait-objects.md](https://github.com/rust-lang/book/blob/main/src/ch17-02-trait-objects.md)
 > <br>
@@ -12,7 +12,7 @@
 
 在拥有继承的语言中，可以定义一个名为 `Component` 的类，该类上有一个 `draw` 方法。其他的类比如 `Button`、`Image` 和 `SelectBox` 会从 `Component` 派生并因此继承 `draw` 方法。它们各自都可以覆盖 `draw` 方法来定义自己的行为，但是框架会把所有这些类型当作是 `Component` 的实例，并在其上调用 `draw`。不过 Rust 并没有继承，我们得另寻出路。
 
-### 定义通用行为的 trait
+## 定义通用行为的 trait
 
 为了实现 `gui` 所期望的行为，让我们定义一个 `Draw` trait，其中包含名为 `draw` 的方法。接着可以定义一个存放 **trait 对象**（*trait object*） 的 vector。trait 对象指向一个实现了我们指定 trait 的类型的实例，以及一个用于在运行时查找该类型的trait方法的表。我们通过指定某种指针来创建 trait 对象，例如 `&` 引用或 `Box<T>` 智能指针，还有 `dyn` keyword， 以及指定相关的 trait（第十九章 [“动态大小类型和 `Sized` trait”][dynamically-sized] 部分会介绍 trait 对象必须使用指针的原因）。我们可以使用 trait 对象代替泛型或具体类型。任何使用 trait 对象的位置，Rust 的类型系统会在编译时确保任何在此上下文中使用的值会实现其 trait 对象的 trait。如此便无需在编译时就知晓所有可能的类型。
 
@@ -54,7 +54,7 @@
 
 另一方面，通过使用 trait 对象的方法，一个 `Screen` 实例可以存放一个既能包含 `Box<Button>`，也能包含 `Box<TextField>` 的 `Vec<T>`。让我们看看它是如何工作的，接着会讲到其运行时性能影响。
 
-### 实现 trait
+## 实现 trait
 
 现在来增加一些实现了 `Draw` trait 的类型。我们将提供 `Button` 类型。再一次重申，真正实现 GUI 库超出了本书的范畴，所以 `draw` 方法体中不会有任何有意义的实现。为了想象一下这个实现看起来像什么，一个 `Button` 结构体可能会拥有 `width`、`height` 和 `label` 字段，如示例 17-7 所示：
 
@@ -102,13 +102,13 @@
 
 这告诉了我们，要么是我们传递了并不希望传递给 `Screen` 的类型并应该提供其他类型，要么应该在 `String` 上实现 `Draw` 以便 `Screen` 可以调用其上的 `draw`。
 
-### trait 对象执行动态分发
+## trait 对象执行动态分发
 
 回忆一下第十章 [“泛型代码的性能”][performance-of-code-using-generics] 部分讨论过的，当对泛型使用 trait bound 时编译器所执行的单态化处理：编译器为每一个被泛型类型参数代替的具体类型生成了函数和方法的非泛型实现。单态化产生的代码在执行 **静态分发**（*static dispatch*）。静态分发发生于编译器在编译时就知晓调用了什么方法的时候。这与 **动态分发** （*dynamic dispatch*）相对，这时编译器在编译时无法知晓调用了什么方法。在动态分发的场景下，编译器生成的代码到运行时才能确定调用了什么方法。
 
 当使用 trait 对象时，Rust 必须使用动态分发。编译器无法知晓所有可能用于 trait 对象代码的类型，所以它也不知道应该调用哪个类型的哪个方法实现。为此，Rust 在运行时使用 trait 对象中的指针来知晓需要调用哪个方法。动态分发也阻止编译器有选择的内联方法代码，这会相应的禁用一些优化。尽管在编写示例 17-5 和可以支持示例 17-9 中的代码的过程中确实获得了额外的灵活性，但仍然需要权衡取舍。
 
-### trait对象需要类型安全
+## trait对象需要类型安全
 
 只有对象安全（object-safe）的trait可以实现为特征对象。这里有一些复杂的规则来实现trait的对象安全，但在实践中，只有两个相关的规则。如果一个 trait 中定义的所有方法都符合以下规则，则该 trait 是对象安全的：
 
@@ -158,6 +158,6 @@ error: could not compile `gui` due to previous error
 
 [performance-of-code-using-generics]:
 ch10-01-syntax.html#泛型代码的性能
-[dynamically-sized]: ch19-04-advanced-types.html#动态大小类型和-sized-trait
+[dynamically-sized]: ch19-03-advanced-types.html#动态大小类型和-sized-trait
 [Rust RFC 255 ref]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 [Rust Reference ref]: https://doc.rust-lang.org/reference/items/traits.html#object-safety

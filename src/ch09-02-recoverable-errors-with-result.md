@@ -1,4 +1,4 @@
-## 用 `Result` 处理可恢复的错误
+# 用 `Result` 处理可恢复的错误
 
 > [ch09-02-recoverable-errors-with-result.md](https://github.com/rust-lang/book/blob/main/src/ch09-02-recoverable-errors-with-result.md)
 > <br>
@@ -58,7 +58,7 @@ enum Result<T, E> {
 
 一如既往，此输出准确地告诉了我们到底出了什么错。
 
-### 匹配不同的错误
+## 匹配不同的错误
 
 示例 9-4 中的代码不管 `File::open` 是因为什么原因失败都会 `panic!`。我们真正希望的是对不同的错误原因采取不同的行为：如果 `File::open `因为文件不存在而失败，我们希望创建这个文件并返回新文件的句柄。如果 `File::open` 因为任何其他原因失败，例如没有打开文件的权限，我们仍然希望像示例 9-4 那样 `panic!`。让我们看看示例 9-5，其中 `match` 增加了另一个分支：
 
@@ -97,7 +97,7 @@ enum Result<T, E> {
 >
 > 虽然这段代码有着如示例 9-5 一样的行为，但并没有包含任何 `match` 表达式且更容易阅读。在阅读完第十三章后再回到这个例子，并查看标准库文档 `unwrap_or_else` 方法都做了什么操作。在处理错误时，还有很多这类方法可以消除大量嵌套的 `match` 表达式。
 
-### 失败时 panic 的简写：`unwrap` 和 `expect`
+## 失败时 panic 的简写：`unwrap` 和 `expect`
 
 `match` 能够胜任它的工作，不过它可能有点冗长并且不总是能很好的表明其意图。`Result<T, E>` 类型定义了很多辅助方法来处理各种情况。其中之一叫做 `unwrap`，它的实现就类似于示例 9-4 中的 `match` 语句。如果 `Result` 值是成员 `Ok`，`unwrap` 会返回 `Ok` 中的值。如果 `Result` 是成员 `Err`，`unwrap` 会为我们调用 `panic!`。这里是一个实践 `unwrap` 的例子：
 
@@ -128,7 +128,7 @@ thread 'main' panicked at 'Failed to open hello.txt: Error { repr: Os { code:
 
 因为这个错误信息以我们指定的文本开始，`Failed to open hello.txt`，将会更容易找到代码中的错误信息来自何处。如果在多处使用 `unwrap`，则需要花更多的时间来分析到底是哪一个 `unwrap` 造成了 panic，因为所有的 `unwrap` 调用都打印相同的信息。
 
-### 传播错误
+## 传播错误
 
 当编写一个其实先会调用一些可能会失败的操作的函数时，除了在这个函数中处理错误外，还可以选择让调用者知道这个错误并决定该如何处理。这被称为 **传播**（*propagating*）错误，这样能更好的控制代码调用，因为比起你代码所拥有的上下文，调用者可能拥有更多信息或逻辑来决定应该如何处理错误。
 
@@ -150,7 +150,7 @@ thread 'main' panicked at 'Failed to open hello.txt: Error { repr: Os { code:
 
 这种传播错误的模式在 Rust 是如此的常见，以至于 Rust 提供了 `?` 问号运算符来使其更易于处理。
 
-### 传播错误的简写：`?` 运算符
+## 传播错误的简写：`?` 运算符
 
 示例 9-7 展示了一个 `read_username_from_file` 的实现，它实现了与示例 9-6 中的代码相同的功能，不过这个实现使用了 `?` 运算符：
 
@@ -186,7 +186,7 @@ thread 'main' panicked at 'Failed to open hello.txt: Error { repr: Os { code:
 
 将文件读取到一个字符串是相当常见的操作，所以 Rust 提供了名为 `fs::read_to_string` 的函数，它会打开文件、新建一个 `String`、读取文件的内容，并将内容放入 `String`，接着返回它。当然，这样做就没有展示所有这些错误处理的机会了，所以我们最初就选择了艰苦的道路。
 
-### 哪里可以使用 `?` 运算符
+## 哪里可以使用 `?` 运算符
 
 `?` 运算符只能被用于返回值与 `?` 作用的值相兼容的函数。因为 `?` 运算符被定义为从函数中提早返回一个值，这与示例 9-6 中的 `match` 表达式有着完全相同的工作方式。示例 9-6 中 `match` 作用于一个 `Result` 值，提早返回的分支返回了一个 `Err(e)` 值。函数的返回值必须是 `Result` 才能与这个 `return` 相兼容。
 

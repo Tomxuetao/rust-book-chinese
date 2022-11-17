@@ -1,6 +1,6 @@
-## 高级类型
+# 高级类型
 
-> [ch19-04-advanced-types.md](https://github.com/rust-lang/book/blob/main/src/ch19-04-advanced-types.md)
+> [ch19-03-advanced-types.md](https://github.com/rust-lang/book/blob/main/src/ch19-03-advanced-types.md)
 > <br>
 > commit a90f07f1e9a7fc75dc9105a6c6f16d5c13edceb0
 
@@ -8,7 +8,7 @@ Rust 的类型系统有一些我们曾经提到但没有讨论过的功能。首
 
 > 这一部分假设你已经阅读了之前的 [“newtype 模式用于在外部类型上实现外部 trait”][using-the-newtype-pattern] 部分。
 
-### 为了类型安全和抽象而使用 newtype 模式
+## 为了类型安全和抽象而使用 newtype 模式
 
 newtype 模式可以用于一些其他我们还未讨论的功能，包括静态的确保某值不被混淆，和用来表示一个值的单元。实际上示例 19-15 中已经有一个这样的例子：`Millimeters` 和 `Meters` 结构体都在 newtype 中封装了 `u32` 值。如果编写了一个有 `Millimeters` 类型参数的函数，不小心使用 `Meters` 或普通的 `u32` 值来调用该函数的程序是不能编译的。
 
@@ -16,7 +16,7 @@ newtype 模式可以用于一些其他我们还未讨论的功能，包括静态
 
 newtype 也可以隐藏其内部的泛型类型。例如，可以提供一个封装了 `HashMap<i32, String>` 的 `People` 类型，用来储存人名以及相应的 ID。使用 `People` 的代码只需与提供的公有 API 交互即可，比如向 `People` 集合增加名字字符串的方法，这样这些代码就无需知道在内部我们将一个 `i32` ID 赋予了这个名字了。newtype 模式是一种实现第十七章 [“封装隐藏了实现细节”][encapsulation-that-hides-implementation-details] 部分所讨论的隐藏实现细节的封装的轻量级方法。
 
-### 类型别名用来创建类型同义词
+## 类型别名用来创建类型同义词
 
 连同 newtype 模式，Rust 还提供了声明 **类型别名**（*type alias*）的能力，使用 `type` 关键字来给予现有类型另一个名字。例如，可以像这样创建 `i32` 的别名 `Kilometers`：
 
@@ -62,7 +62,7 @@ Box<dyn Fn() + Send + 'static>
 
 类型别名在两个方面有帮助：易于编写 **并** 在整个 `std::io` 中提供了一致的接口。因为这是一个别名，它只是另一个 `Result<T, E>`，这意味着可以在其上使用 `Result<T, E>` 的任何方法，以及像 `?` 这样的特殊语法。
 
-### 从不返回的 never type
+## 从不返回的 never type
 
 Rust 有一个叫做 `!` 的特殊类型。在类型理论术语中，它被称为 *empty type*，因为它没有值。我们更倾向于称之为 *never type*。这个名字描述了它的作用：在函数从不返回的时候充当返回值。例如：
 
@@ -98,7 +98,7 @@ never type 的另一个用途是 `panic!`。还记得 `Option<T>` 上的 `unwrap
 
 这里，循环永远也不结束，所以此表达式的值是 `!`。但是如果引入 `break` 这就不为真了，因为循环在执行到 `break` 后就会终止。
 
-### 动态大小类型和 `Sized` trait
+## 动态大小类型和 `Sized` trait
 
 因为 Rust 需要知道例如应该为特定类型的值分配多少空间这样的信息其类型系统的一个特定的角落可能令人迷惑：这就是 **动态大小类型**（*dynamically sized types*）的概念。这有时被称为 “DST” 或 “unsized types”，这些类型允许我们处理只有在运行时才知道大小的类型。
 
@@ -139,4 +139,4 @@ ch17-01-what-is-oo.html#封装隐藏了实现细节
 ch06-02-match.html#match-控制流运算符
 [using-trait-objects-that-allow-for-values-of-different-types]:
 ch17-02-trait-objects.html#为使用不同类型的值而设计的-trait-对象
-[using-the-newtype-pattern]: ch19-03-advanced-traits.html#newtype-模式用以在外部类型上实现外部-trait
+[using-the-newtype-pattern]: ch19-02-advanced-traits.html#newtype-模式用以在外部类型上实现外部-trait
