@@ -8,7 +8,7 @@
 
 作为最后的项目，我们将要实现一个返回 “hello” 的 web server，它在浏览器中看起来就如图例 20-1 所示：
 
-![hello from rust](img/trpl20-01.png)
+![hello from rust](./img/trpl20-01.png)
 
 <span class="caption">图例 20-1: 我们最后将一起分享的项目</span>
 

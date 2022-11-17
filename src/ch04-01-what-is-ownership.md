@@ -119,7 +119,7 @@ Rust 采取了一个不同的策略：内存在拥有它的变量离开作用域
 
 看看图 4-1 以了解 `String` 的底层会发生什么。`String` 由三部分组成，如图左侧所示：一个指向存放字符串内容内存的指针，一个长度，和一个容量。这一组数据存储在栈上。右侧则是堆上存放内容的内存部分。
 
-<img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
+<img alt="String in memory" src="./img/trpl04-01.svg" class="center" style="width: 50%;" />
 
 <span class="caption">图 4-1：将值 `"hello"` 绑定给 `s1` 的 `String` 在内存中的表现形式</span>
 
@@ -127,13 +127,13 @@ Rust 采取了一个不同的策略：内存在拥有它的变量离开作用域
 
 当我们将 `s1` 赋值给 `s2`，`String` 的数据被复制了，这意味着我们从栈上拷贝了它的指针、长度和容量。我们并没有复制指针指向的堆上数据。换句话说，内存中数据的表现如图 4-2 所示。
 
-<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
+<img alt="s1 and s2 pointing to the same value" src="./img/trpl04-02.svg" class="center" style="width: 50%;" />
 
 <span class="caption">图 4-2：变量 `s2` 的内存表现，它有一份 `s1` 指针、长度和容量的拷贝</span>
 
 这个表现形式看起来 **并不像** 图 4-3 中的那样，如果 Rust 也拷贝了堆上的数据，那么内存看起来就是这样的。如果 Rust 这么做了，那么操作 `s2 = s1` 在堆上数据比较大的时候会对运行时性能造成非常大的影响。
 
-<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
+<img alt="s1 and s2 to two places" src="./img/trpl04-03.svg" class="center" style="width: 50%;" />
 
 <span class="caption">图 4-3：另一个 `s2 = s1` 时可能的内存表现，如果 Rust 同时也拷贝了堆上的数据的话</span>
 
@@ -149,7 +149,7 @@ Rust 采取了一个不同的策略：内存在拥有它的变量离开作用域
 
 如果你在其他语言中听说过术语 **浅拷贝**（*shallow copy*）和 **深拷贝**（*deep copy*），那么拷贝指针、长度和容量而不拷贝数据可能听起来像浅拷贝。不过因为 Rust 同时使第一个变量无效了，这个操作被称为 **移动**（*move*），而不是浅拷贝。上面的例子可以解读为 `s1` 被 **移动** 到了 `s2` 中。那么具体发生了什么，如图 4-4 所示。
 
-<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
+<img alt="s1 moved to s2" src="./img/trpl04-04.svg" class="center" style="width: 50%;" />
 
 <span class="caption">图 4-4：`s1` 无效之后的内存表现</span>
 

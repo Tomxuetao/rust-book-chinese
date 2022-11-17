@@ -35,7 +35,7 @@ Rust 的内存安全性保证使其难以意外地制造永远也不会被清理
 
 可以看到将列表 `a` 修改为指向 `b` 之后， `a` 和 `b` 中的 `Rc<List>` 实例的引用计数都是 2。在 `main` 的结尾，Rust 丢弃 `b`，这会 `b` `Rc<List>` 实例的引用计数从 2 减为 1。然而，`b` `Rc<List>` 不能被回收，因为其引用计数是 1 而不是 0。接下来 Rust 会丢弃 `a` 将 `a` `Rc<List>` 实例的引用计数从 2 减为 1。这个实例也不能被回收，因为 `b` `Rc<List>` 实例依然引用它，所以其引用计数是 1。这些列表的内存将永远保持未被回收的状态。为了更形象的展示，我们创建了一个如图 15-4 所示的引用循环：
 
-<img alt="Reference cycle of lists" src="img/trpl15-04.svg" class="center" />
+<img alt="Reference cycle of lists" src="./img/trpl15-04.svg" class="center" />
 
 <span class="caption">图 15-4: 列表 `a` 和 `b` 彼此互相指向形成引用循环</span>
 

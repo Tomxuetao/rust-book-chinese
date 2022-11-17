@@ -15,7 +15,7 @@
 
 首先，注意变量声明和函数返回值中的所有元组代码都消失了。其次，注意我们传递 `&s1` 给 `calculate_length`，同时在函数定义中，我们获取 `&String` 而不是 `String`。这些 & 符号就是 **引用**，它们允许你使用值但不获取其所有权。图 4-5 展示了一张示意图。
 
-<img alt="&amp;String s pointing at String s1" src="img/trpl04-05.svg" class="center" />
+<img alt="&amp;String s pointing at String s1" src="./img/trpl04-05.svg" class="center" />
 
 <span class="caption">图 4-5：`&String s` 指向 `String s1` 示意图</span>
 

@@ -83,7 +83,7 @@ cons list 的每一项都包含两个元素：当前项的值和下一项。其�
 
 与此相对当 Rust 编译器检查像示例 15-2 中的 `List` 这样的递归类型时会发生什么呢。编译器尝试计算出储存一个 `List` 枚举需要多少内存，并开始检查 `Cons` 成员，那么 `Cons` 需要的空间等于 `i32` 的大小加上 `List` 的大小。为了计算 `List` 需要多少内存，它检查其成员，从 `Cons` 成员开始。`Cons`成员储存了一个 `i32` 值和一个`List`值，这样的计算将无限进行下去，如图 15-1 所示：
 
-<img alt="An infinite Cons list" src="img/trpl15-01.svg" class="center" style="width: 50%;" />
+<img alt="An infinite Cons list" src="./img/trpl15-01.svg" class="center" style="width: 50%;" />
 
 <span class="caption">图 15-1：一个包含无限个 `Cons` 成员的无限 `List`</span>
 
@@ -112,7 +112,7 @@ help: insert some indirection (e.g., a `Box`, `Rc`, or `&`) to make `List` repre
 
 `Cons` 成员将会需要一个 `i32` 的大小加上储存 box 指针数据的空间。`Nil` 成员不储存值，所以它比 `Cons` 成员需要更少的空间。现在我们知道了任何 `List` 值最多需要一个 `i32` 加上 box 指针数据的大小。通过使用 box ，打破了这无限递归的连锁，这样编译器就能够计算出储存 `List` 值需要的大小了。图 15-2 展示了现在 `Cons` 成员看起来像什么：
 
-<img alt="A finite Cons list" src="img/trpl15-02.svg" class="center" />
+<img alt="A finite Cons list" src="./img/trpl15-02.svg" class="center" />
 
 <span class="caption">图 15-2：因为 `Cons` 存放一个 `Box` 所以 `List` 不是无限大小的了</span>
 
