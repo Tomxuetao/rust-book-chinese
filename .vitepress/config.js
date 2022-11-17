@@ -147,7 +147,6 @@ export default defineConfig({
   title: 'Rust 程序设计语言',
   description: '12',
   srcDir: 'src',
-  base: '/rust-book/',
   lang: 'en-US',
   logo: '/logo.svg',
   lastUpdated: true,
