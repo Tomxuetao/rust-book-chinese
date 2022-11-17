@@ -148,6 +148,7 @@ export default defineConfig({
   description: '12',
   srcDir: 'src',
   lang: 'en-US',
+  base: '/rust-book-chinese/',
   logo: '/logo.svg',
   lastUpdated: true,
   ignoreDeadLinks: true,
