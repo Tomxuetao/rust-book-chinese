@@ -151,6 +151,7 @@ export default defineConfig({
   lang: 'en-US',
   logo: '/logo.svg',
   lastUpdated: true,
+  ignoreDeadLinks: true,
   head: [
     [
       'link',
