@@ -149,7 +149,7 @@ export default defineConfig({
   srcDir: 'src',
   lang: 'en-US',
   base: '/rust-book-chinese/',
-  logo: '/logo.svg',
+  logo: './logo.svg',
   lastUpdated: true,
   ignoreDeadLinks: true,
   head: [
@@ -157,7 +157,7 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: '/logo.svg'
+        href: './logo.svg'
       }
     ]
   ],
