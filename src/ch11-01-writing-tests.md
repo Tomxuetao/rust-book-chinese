@@ -70,7 +70,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```panics,noplayground
 <<< @/listings/ch11-writing-automated-tests/listing-11-03/src/lib.rs
 
 <span class="caption">示例 11-3：增加第二个因调用了 `panic!` 而失败的测试</span>
@@ -125,7 +124,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 两个通过的测试！现在让我们看看如果引入一个 bug 的话测试结果会发生什么。将 `can_hold` 方法中比较长度时本应使用大于号的地方改成小于号：
 
-```not_desired_behavior,noplayground
 <<< @/listings/ch11-writing-automated-tests/no-listing-03-introducing-a-bug/src/lib.rs
 
 现在运行测试会产生：
@@ -154,7 +152,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 在代码中引入一个 bug 来看看使用 `assert_eq!` 的测试失败是什么样的。修改 `add_two` 函数的实现使其加 3：
 
-```not_desired_behavior,noplayground
 <<< @/listings/ch11-writing-automated-tests/no-listing-04-bug-in-add-two/src/lib.rs
 
 再次运行测试：
@@ -183,7 +180,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 让我们通过将 `greeting` 改为不包含 `name` 来在代码中引入一个 bug 来测试失败时是怎样的：
 
-```not_desired_behavior,noplayground
 <<< @/listings/ch11-writing-automated-tests/no-listing-06-greeter-with-bug/src/lib.rs
 
 运行测试会产生：
@@ -220,7 +216,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 看起来不错！现在在代码中引入 bug，移除 `new` 函数在值大于 100 时会 panic 的条件：
 
-```not_desired_behavior,noplayground
 <<< @/listings/ch11-writing-automated-tests/no-listing-08-guess-with-bug/src/lib.rs
 
 如果运行示例 11-8 的测试，它会失败：
@@ -241,7 +236,6 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 为了观察带有 `expected` 信息的 `should_panic` 测试失败时会发生什么，让我们再次引入一个 bug，将 `if value < 1` 和 `else if value > 100` 的代码块对换：
 
-```,not_desired_behavior
 <<< @/listings/ch11-writing-automated-tests/no-listing-09-guess-with-panic-msg-bug/src/lib.rs
 
 这一次运行 `should_panic` 测试，它会失败：

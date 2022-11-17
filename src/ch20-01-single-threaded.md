@@ -59,7 +59,6 @@ Connection established!
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-02/src/main.rs
 
 <span class="caption">示例 20-2: 读取 `TcpStream` 并打印数据</span>
@@ -141,7 +140,6 @@ HTTP/1.1 200 OK\r\n\r\n
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-03/src/main.rs
 
 <span class="caption">示例 20-3: 将一个微型成功 HTTP 响应写入流</span>
@@ -167,7 +165,6 @@ HTTP/1.1 200 OK\r\n\r\n
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-05/src/main.rs
 
 <span class="caption">示例 20-5: 将 *hello.html* 的内容作为响应 body 发送</span>
@@ -186,7 +183,6 @@ HTTP/1.1 200 OK\r\n\r\n
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-06/src/main.rs
 
 <span class="caption">示例 20-6: 匹配请求并区别处理 */* 请求与其他请求</span>
@@ -201,7 +197,6 @@ HTTP/1.1 200 OK\r\n\r\n
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-07/src/main.rs
 
 <span class="caption">示例 20-7: 对于任何不是 */* 的请求返回 `404` 状态码的响应和错误页面</span>
@@ -223,7 +218,6 @@ HTTP/1.1 200 OK\r\n\r\n
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-09/src/main.rs
 
 <span class="caption">示例 20-9: 重构使得 `if` 和 `else` 块中只包含两个情况所不同的代码</span>

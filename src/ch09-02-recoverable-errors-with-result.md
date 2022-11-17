@@ -43,7 +43,6 @@ enum Result<T, E> {
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic
 <<< @/listings/ch09-error-handling/listing-09-04/src/main.rs
 
 <span class="caption">示例 9-4：使用 `match` 表达式处理可能会返回的 `Result` 成员</span>
@@ -104,7 +103,6 @@ enum Result<T, E> {
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic
 <<< @/listings/ch09-error-handling/no-listing-04-unwrap/src/main.rs
 
 如果调用这段代码时不存在 *hello.txt* 文件，我们将会看到一个 `unwrap` 调用 `panic!` 时提供的错误信息：
@@ -119,7 +117,6 @@ src/libcore/result.rs:906:4
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic
 <<< @/listings/ch09-error-handling/no-listing-05-expect/src/main.rs
 
 `expect` 与 `unwrap` 的使用方式一样：返回文件句柄或调用 `panic!` 宏。`expect` 在调用 `panic!` 时使用的错误信息将是我们传递给 `expect` 的参数，而不像 `unwrap` 那样使用默认的 `panic!` 信息。它看起来像这样：

@@ -17,7 +17,6 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,noplayground
 <<< @/listings/ch12-an-io-project/listing-12-04/src/main.rs
 
 <span class="caption">示例 12-4：读取第二个参数所指定的文件内容</span>

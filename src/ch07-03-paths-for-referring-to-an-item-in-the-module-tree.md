@@ -66,7 +66,6 @@ Rust 选择以这种方式来实现模块系统功能，因此默认隐藏内部
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
 <<< @/listings/ch07-managing-growing-projects/listing-07-07/src/lib.rs
 
 <span class="caption">示例 7-7: 为 `mod hosting`
@@ -87,7 +86,7 @@ Rust 选择以这种方式来实现模块系统功能，因此默认隐藏内部
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch07-managing-growing-projects/listing-07-08/src/lib.rs
 
 <span class="caption">示例 7-8: 使用以 `super` 开头的相对路径从父目录开始调用函数</span>

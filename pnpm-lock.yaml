@@ -86,11 +86,17 @@ packages:
       '@algolia/transporter': 4.14.2
     dev: true
 
+  /@algolia/logger-/4.14.2:
+    resolution: {integrity: sha512-8S2PlpdshbkwlLCSAB5f8c91xyc84VM9Ar9EdfE9UmX+NrKNYnWR1maXXVDQQoto07G1Ol/tYFnFVhUZq0xV/g==}
+    dependencies:
+      '@algolia/logger-common': 4.14.2
+    dev: true
+
   /@algolia/logger-common/4.14.2:
     resolution: {integrity: sha512-/JGlYvdV++IcMHBnVFsqEisTiOeEr6cUJtpjz8zc0A9c31JrtLm318Njc72p14Pnkw3A/5lHHh+QxpJ6WFTmsA==}
     dev: true
 
-  /@algolia/logger-/4.14.2:
+  /@algolia/logger-console/4.14.2:
     resolution: {integrity: sha512-8S2PlpdshbkwlLCSAB5f8c91xyc84VM9Ar9EdfE9UmX+NrKNYnWR1maXXVDQQoto07G1Ol/tYFnFVhUZq0xV/g==}
     dependencies:
       '@algolia/logger-common': 4.14.2
@@ -341,8 +347,9 @@ packages:
       '@algolia/client-common': 4.14.2
       '@algolia/client-personalization': 4.14.2
       '@algolia/client-search': 4.14.2
-      '@algolia/logger-common': 4.14.2
       '@algolia/logger-': 4.14.2
+      '@algolia/logger-common': 4.14.2
+      '@algolia/logger-console': 4.14.2
       '@algolia/requester-browser-xhr': 4.14.2
       '@algolia/requester-common': 4.14.2
       '@algolia/requester-node-http': 4.14.2

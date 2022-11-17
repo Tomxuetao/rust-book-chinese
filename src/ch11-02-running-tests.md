@@ -30,7 +30,6 @@ $ cargo test -- --test-threads=1
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```panics,noplayground
 <<< @/listings/ch11-writing-automated-tests/listing-11-10/src/lib.rs
 
 <span class="caption">示例 11-10：一个调用了 `println!` 的函数的测试</span>

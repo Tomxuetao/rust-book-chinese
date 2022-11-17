@@ -10,7 +10,7 @@
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs
 
 <span class="caption">示例 7-11: 使用 `use` 将模块引入作用域</span>
@@ -21,7 +21,7 @@
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs
 
 <span class="caption">示例 7-12: 使用 `use` 和相对路径将模块引入作用域</span>
@@ -32,7 +32,7 @@
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs
 
 <span class="caption">示例 7-13: 使用 `use` 将 `add_to_waitlist` 函数引入作用域，这并不符合习惯</span>
@@ -79,7 +79,7 @@
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs
 
 <span class="caption">示例 7-17: 通过 `pub use` 使名称可从新作用域中被导入至任何代码</span>

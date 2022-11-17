@@ -77,7 +77,6 @@ pub trait Iterator {
 
 <span class="filename">文件名: src/main.rs</span>
 
-```not_desired_behavior
 <<< @/listings/ch13-functional-features/listing-13-17/src/main.rs
 
 <span class="caption">示例 13-17：调用迭代器适配器 `map` 来创建一个新迭代器</span>

@@ -86,7 +86,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,test_harness
+
 <<< @/listings/ch14-more-about-cargo/listing-14-03/src/lib.rs
 
 <span class="caption">示例 14-3：一个库 `art` 其组织包含 `kinds` 和 `utils` 模块</span>

@@ -58,7 +58,7 @@
 
 Rust 提供了两种引用元素的方法的原因是当尝试使用现有元素范围之外的索引值时可以选择让程序如何运行。举个例子，让我们看看使用这个技术，尝试在当有一个 5 个元素的 vector 接着访问索引 100 位置的元素会发生什么，如示例 8-6 所示：
 
-```should_panic,panics
+
 <<< @/listings/ch08-common-collections/listing-08-06/src/main.rs
 
 <span class="caption">示例 8-6：尝试访问一个包含 5 个元素的 vector 的索引 100 处的元素</span>

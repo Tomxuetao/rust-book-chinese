@@ -12,7 +12,6 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-10/src/main.rs
 
 <span class="caption">示例 20-10: 通过识别 */sleep* 并休眠五秒来模拟慢请求</span>
@@ -45,7 +44,6 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```no_run
 <<< @/listings/ch20-web-server/listing-20-11/src/main.rs
 
 <span class="caption">示例 20-11: 为每一个流新建一个线程</span>
@@ -166,7 +164,6 @@ pub fn spawn<F, T>(f: F) -> JoinHandle<T>
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,not_desired_behavior
 <<< @/listings/ch20-web-server/listing-20-14/src/lib.rs
 
 <span class="caption">示例 20-14: 为 `ThreadPool` 创建一个 vector 来存放线程</span>
@@ -337,7 +334,6 @@ Worker 2 got a job; executing.
 
 <span class="filename">文件名: src/lib.rs</span>
 
-```,not_desired_behavior
 <<< @/listings/ch20-web-server/listing-20-21/src/lib.rs
 
 <span class="caption">示例 20-21: 一个使用 `while let` 的 `Worker::new` 替代实现</span>

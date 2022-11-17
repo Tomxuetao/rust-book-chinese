@@ -54,7 +54,7 @@ $ cargo run searchstring example-filename.txt
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,noplayground
+
 <<< @/listings/ch12-an-io-project/listing-12-02/src/main.rs
 
 <span class="caption">示例 12-2：创建变量来存放查询参数和文件名参数</span>

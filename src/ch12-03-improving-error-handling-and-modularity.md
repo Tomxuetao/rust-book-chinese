@@ -59,7 +59,7 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,noplayground
+
 <<< @/listings/ch12-an-io-project/listing-12-06/src/main.rs
 
 <span class="caption">示例 12-6：重构 `parse_config` 返回一个 `Config` 结构体实例</span>
@@ -85,7 +85,7 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,noplayground
+
 <<< @/listings/ch12-an-io-project/listing-12-07/src/main.rs
 
 <span class="caption">示例 12-7：将 `parse_config` 变为 `Config::new`</span>

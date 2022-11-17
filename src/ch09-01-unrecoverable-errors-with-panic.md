@@ -19,7 +19,6 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,panics
 <<< @/listings/ch09-error-handling/no-listing-01-panic/src/main.rs
 
 运行程序将会出现类似这样的输出：
@@ -36,7 +35,6 @@
 
 <span class="filename">文件名: src/main.rs</span>
 
-```should_panic,panics
 <<< @/listings/ch09-error-handling/listing-09-01/src/main.rs
 
 <span class="caption">示例 9-1：尝试访问超越 vector 结尾的元素，这会造成 `panic!`</span>
