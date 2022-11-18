@@ -15,5 +15,6 @@
     "vitepress": "1.0.0-alpha.29",
     "vue": "^3.2.45",
     "@types/node": "^18.11.9"
-  }
+  },
+  "packageManager": "pnpm@7.15.0"
 }
