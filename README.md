@@ -24,7 +24,7 @@ cd 到项目目录，安装包
 pnpm install
 ```
 
-构建好的静态文档会出现在 "./.vuepress/dist" 中
+构建好的静态文档会出现在 "./.vitepress/dist" 中
 
 ```bash
 pnpm run build
