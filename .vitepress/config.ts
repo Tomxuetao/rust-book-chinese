@@ -30,6 +30,17 @@ export default defineConfig({
         {text: '简体中文', link: 'https://kaisery.github.io/trpl-zh-cn/'}
       ]
     },
+    editLink: {
+      pattern: 'https://github.com/Tomxuetao/rust-book-chinese/edit/main/src/:path',
+      text: '在 github 上编辑此页'
+    },
+    lastUpdatedText: '更新时间',
+
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    outlineTitle: '当前页目录',
     nav: [
       {
         text: '相关链接',
