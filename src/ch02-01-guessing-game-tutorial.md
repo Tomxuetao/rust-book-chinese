@@ -23,7 +23,6 @@ $ cd guessing_game
 
 <span class="filename">文件名: Cargo.toml</span>
 
-```toml
 <<< @/listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml
 
 正如第一章那样，`cargo new` 生成了一个 “Hello, world!” 程序。查看 _src/main.rs_ 文件：
@@ -188,8 +187,7 @@ Cargo 对外部 crate 的运用是其真正的亮点所在。在我们使用 `ra
 
 <span class="filename">文件名: Cargo.toml</span>
 
-```toml
-<<< @/listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:
+<<< @/listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml
 
 在 _Cargo.toml_ 文件中，标题以及之后的内容属同一个片段，直到遇到下一个标题才开始新的片段。`[dependencies]` 片段告诉 Cargo 本项目依赖了哪些外部 crate 及其版本。本例中，我们使用语义化版本 `0.8.3` 来指定 `rand` crate。Cargo 理解 [语义化版本（Semantic Versioning）][semver]<!-- ignore -->（有时也称为 _SemVer_），这是一种定义版本号的标准。`0.8.3` 事实上是 `^0.8.3` 的简写，它表示任何至少是 `0.8.3` 但小于 `0.9.0` 的版本。
 

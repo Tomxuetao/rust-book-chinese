@@ -13,6 +13,12 @@ const sidebarConfigMap: Map<Number, SidebarItem> = new Map([
       nextTitleList: ['安装', 'Hello,World!', 'Hello,Cargo!']
     }
   ],
+  [2,
+    {
+      title: '写个猜数字游戏',
+      nextTitleList: ['猜数字小游戏']
+    }
+  ],
   [3,
     {
       title: '常见编程概念',

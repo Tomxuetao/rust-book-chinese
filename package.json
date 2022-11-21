@@ -12,9 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "vitepress": "1.0.0-alpha.29",
-    "vue": "^3.2.45",
-    "@types/node": "^18.11.9"
+    "vue": "^3.2.45"
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@7.15.0",
+  "dependencies": {
+    "rust-book-chinese": "link:"
+  }
 }
