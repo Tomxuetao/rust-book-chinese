@@ -1,5 +1,5 @@
-import {defineConfig} from 'vitepress'
-import {createSidebarByConfig} from './config/sidebar'
+import { defineConfig } from 'vitepress'
+import { createSidebarByConfig } from './config/sidebar'
 
 export default defineConfig({
   title: 'Rust 程序设计语言',

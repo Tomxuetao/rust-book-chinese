@@ -1,12 +1,12 @@
-// @ts-ignore
-import fs from "node:fs";
+import { DefaultTheme } from 'vitepress'
+import fs from "fs";
 
-export interface SidebarItem {
+export interface CustomItem {
   title: String,
   nextTitleList: Array<String>
 }
 
-const sidebarConfigMap: Map<Number, SidebarItem> = new Map([
+const sidebarConfigMap: Map<Number, CustomItem> = new Map([
   [1,
     {
       title: '入门指南',
@@ -130,13 +130,11 @@ const sidebarConfigMap: Map<Number, SidebarItem> = new Map([
 ])
 
 export const createSidebarByConfig = (configMap = sidebarConfigMap) => {
-  // @ts-ignore
-  const keys: number[] = [...configMap.keys()]
   const fileNameList: String[] = fs.readdirSync('./src') || []
-  const sidebarList = []
-  keys.forEach(key => {
-    const { title, nextTitleList } = configMap.get(key)
-    const nextList = []
+  const sidebarList: DefaultTheme.NavItemChildren[] = []
+  for (const [key, value] of configMap) {
+    const {title, nextTitleList} = value
+    const nextList: DefaultTheme.NavItemWithLink[] = []
     nextTitleList.forEach((name, index) => {
       const matchName = key > 9 ? `${key}-${index > 9 ? index : '0' + (index + 1)}` : `0${key}-${index > 9 ? (index + 1) : '0' + (index + 1)}`
       const fileName = fileNameList.find(tempName => tempName.includes(matchName))
@@ -149,6 +147,6 @@ export const createSidebarByConfig = (configMap = sidebarConfigMap) => {
       text: `${key}. ${title}`,
       items: nextList
     })
-  })
+  }
   return sidebarList
 }
