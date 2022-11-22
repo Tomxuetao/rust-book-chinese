@@ -79,11 +79,11 @@ Rust 适合追求编程语言的速度与稳定性的开发者。使用 Rust，�
 
 学习 Rust 的一个重点在于了解如何阅读编译器提供的错误信息，它们会指导你编写出能运行的代码。为此，我们会提供很多无法通过编译的示例，并附上错误信息。运行示例代码的时候务必阅读上下文，看看这段代码是否是故意写错的，部分示例代码就是无法编译的！Ferris 也会帮助你分辨哪些代码是故意写错的：
 
-| Ferris                                                                                       | 含义                           |
-|----------------------------------------------------------------------------------------------|--------------------------------|
-| <img src="././img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris 头上有问号"/>       | 这段代码无法通过编译！         |
-| <img src="././img/ferris/panics.svg" class="ferris-explain" alt="Ferris 举起两只钳子"/>                | 这段代码会 Panic！             |
-| <img src="././img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris 举起一只钳子并耸肩"/> | 这段代码的运行结果不符合预期。 |
+| Ferris                                                                                           | 含义                           |
+|--------------------------------------------------------------------------------------------------|--------------------------------|
+| <img src="./img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris 头上有问号"/>         | 这段代码无法通过编译！         |
+| <img src="./img/ferris/panics.svg" class="ferris-explain" alt="Ferris 举起两只钳子"/>                  | 这段代码会 Panic！             |
+| <img src="./img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris 举起一只钳子并耸肩"/> | 这段代码的运行结果不符合预期。 |
 
 在大部分情况，我们会指导你将无法通过编译的代码修改为正确版本。
 

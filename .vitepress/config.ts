@@ -53,7 +53,7 @@ export default defineConfig({
       }
     ],
     sidebar: [{
-      text: '介绍',
+      text: '',
       items: [
         { text: '前言', link: '/foreword' },
         { text: '简介', link: '/ch00-00-introduction' }
