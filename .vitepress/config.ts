@@ -52,12 +52,13 @@ export default defineConfig({
         ]
       }
     ],
-    sidebar: [{
-      text: '',
-      items: [
-        { text: '前言', link: '/foreword' },
-        { text: '简介', link: '/ch00-00-introduction' }
-      ]
-    }, ...createSidebarByConfig()]
+    sidebar: [
+      {
+        items: [
+          { text: '前言', link: '/foreword' },
+          { text: '简介', link: '/ch00-00-introduction' }
+        ]
+      }, ...createSidebarByConfig()
+    ]
   }
 })

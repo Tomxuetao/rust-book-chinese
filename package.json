@@ -11,13 +11,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.11.9",
+  "dependencies": {
     "vitepress": "1.0.0-alpha.29",
     "vue": "^3.2.45"
   },
-  "packageManager": "pnpm@7.15.0",
-  "dependencies": {
-    "rust-book-chinese": "link:"
-  }
+  "devDependencies": {
+    "@types/node": "^18.11.9"
+  },
+  "packageManager": "pnpm@7.15.0"
 }
