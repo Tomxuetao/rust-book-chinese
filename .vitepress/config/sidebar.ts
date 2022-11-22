@@ -126,27 +126,38 @@ const sidebarConfigMap: Map<Number, CustomItem> = new Map([
       title: '最后的项目: 构建多线程 web server',
       nextTitleList: ['构建单线程 web server', '将单线程 server 变为多线程 server', '优雅停机与清理']
     }
+  ],
+  [21,
+    {
+      title: '附录',
+      nextTitleList: ['A - 关键字', 'B - 运算符与符号', 'C - 可派生的 trait', 'D - 实用开发工具', 'E - 版本', 'F - 本书译本', 'G - Rust 是如何开发的与 “Nightly Rust”']
+    }
   ]
 ])
 
+/**
+ * 通过菜单 Map 生成 sidebar
+ * @param configMap
+ */
 export const createSidebarByConfig = (configMap = sidebarConfigMap) => {
   const fileNameList: String[] = fs.readdirSync('./src') || []
-  const sidebarList: DefaultTheme.NavItemChildren[] = []
+  const navItemChildrenList: DefaultTheme.NavItemChildren[] = []
   for (const [key, value] of configMap) {
-    const {title, nextTitleList} = value
-    const nextList: DefaultTheme.NavItemWithLink[] = []
+    const { title, nextTitleList } = value
+    const navItemWithLinkList: DefaultTheme.NavItemWithLink[] = []
     nextTitleList.forEach((name, index) => {
-      const matchName = key > 9 ? `${key}-${index > 9 ? index : '0' + (index + 1)}` : `0${key}-${index > 9 ? (index + 1) : '0' + (index + 1)}`
+      const suffix = index > 9 ? index : '0' + (index + 1)
+      const matchName = key <= 20 ? (key > 9 ? `${key}-${suffix}` : `0${key}-${suffix}`) : `appendix-${suffix}`
       const fileName = fileNameList.find(tempName => tempName.includes(matchName))
-      nextList.push({
+      navItemWithLinkList.push({
         text: `${key}.${index + 1}. ${name}`,
         link: `/${fileName}`
       })
     })
-    sidebarList.push({
+    navItemChildrenList.push({
       text: `${key}. ${title}`,
-      items: nextList
+      items: navItemWithLinkList
     })
   }
-  return sidebarList
+  return navItemChildrenList
 }

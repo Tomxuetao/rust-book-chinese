@@ -21,13 +21,13 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks: [
-      {icon: 'github', link: 'https://github.com/Tomxuetao/rust-book-chinese.git'}
+      { icon: 'github', link: 'https://github.com/Tomxuetao/rust-book-chinese.git' }
     ],
     localeLinks: {
       text: '简体中文',
       items: [
-        {text: 'English', link: 'https://doc.rust-lang.org/book/'},
-        {text: '简体中文', link: 'https://kaisery.github.io/trpl-zh-cn/'}
+        { text: 'English', link: 'https://doc.rust-lang.org/book/' },
+        { text: '简体中文', link: 'https://kaisery.github.io/trpl-zh-cn/' }
       ]
     },
     editLink: {
@@ -52,38 +52,12 @@ export default defineConfig({
         ]
       }
     ],
-    sidebar: createSidebarByConfig().concat({
-      text: '21.附录',
+    sidebar: [{
+      text: '介绍',
       items: [
-        {
-          text: '21.1. A - 关键字',
-          link: '/appendix-01-keywords'
-        },
-        {
-          text: '21.2. B - 运算符与符号',
-          link: '/appendix-02-operators'
-        },
-        {
-          text: '21.3. C - 可派生的 trait',
-          link: '/appendix-03-derivable-traits'
-        },
-        {
-          text: '21.4. D - 实用开发工具',
-          link: '/appendix-04-useful-development-tools'
-        },
-        {
-          text: '21.5. E - 版本',
-          link: '/appendix-05-editions'
-        },
-        {
-          text: '21.6. F - 本书译本',
-          link: '/appendix-06-translation'
-        },
-        {
-          text: '21.7. 附录 G：Rust 是如何开发的与 “Nightly Rust”',
-          link: '/appendix-07-nightly-rust'
-        }
+        { text: '前言', link: '/foreword' },
+        { text: '简介', link: '/ch00-00-introduction' }
       ]
-    })
+    }, ...createSidebarByConfig()]
   }
 })
