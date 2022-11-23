@@ -6,7 +6,20 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve",
+    "lint": "lint-staged",
+    "fix": "eslint --fix --ext .js,.vue src",
+    "commit": "git add . & cz",
+    "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tomxuetao/rust-book-chinese"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +29,22 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9"
+    "@types/node": "^18.11.9",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.7.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3"
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@7.15.0",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  }
 }
