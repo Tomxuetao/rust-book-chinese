@@ -147,8 +147,7 @@ $ cargo new hello_macro_derive --lib
 
 <span class="filename">文件名: hello_macro_derive/Cargo.toml</span>
 
-```toml
-<<< @/listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:6:12
+<<< @/listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml
 
 为定义一个过程式宏，请将示例 19-31 中的代码放在 `hello_macro_derive` crate 的 *src/lib.rs* 文件里面。注意这段代码在我们添加 `impl_hello_macro` 函数的定义之前是无法编译的。
 
@@ -223,8 +222,7 @@ DeriveInput {
 
 此时，`cargo build` 应该都能成功编译 `hello_macro` 和 `hello_macro_derive` 。我们将这些 crate 连接到示例 19-30 的代码中来看看过程宏的行为！在 *projects* 目录下用 `cargo new pancakes` 命令新建一个二进制项目。需要将 `hello_macro` 和 `hello_macro_derive` 作为依赖加到 `pancakes` 包的 *Cargo.toml* 文件中去。如果你正将 `hello_macro` 和 `hello_macro_derive` 的版本发布到 [crates.io](https://crates.io/) 上，其应为常规依赖；如果不是，则可以像下面这样将其指定为 `path` 依赖：
 
-```toml
-<<< @/listings/ch19-advanced-features/no-listing-21-pancakes/pancakes/Cargo.toml:7:9
+<<< @/listings/ch19-advanced-features/no-listing-21-pancakes/pancakes/Cargo.toml
 
 把示例 19-30 中的代码放在 *src/main.rs* ，然后执行 `cargo run`：其应该打印 `Hello, Macro! My name is Pancakes!`。其包含了该过程宏中 `HelloMacro` trait 的实现，而无需 `pancakes` crate 实现它；`#[derive(HelloMacro)]` 增加了该 trait 实现。
 

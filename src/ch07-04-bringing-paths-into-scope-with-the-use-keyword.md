@@ -94,7 +94,6 @@
 
 <span class="filename">文件名: Cargo.toml</span>
 
-```toml
 <<< @/listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:
 
 在 *Cargo.toml* 中加入 `rand` 依赖告诉了 Cargo 要从 [crates.io](https://crates.io) 下载 `rand` 和其依赖，并使其可在项目代码中使用。
