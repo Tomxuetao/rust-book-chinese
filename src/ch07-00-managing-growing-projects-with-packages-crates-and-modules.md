@@ -21,4 +21,4 @@ Rust 有许多功能可以让你管理代码的组织，包括哪些内容可以
 
 本章将会涵盖所有这些概念，讨论它们如何交互，并说明如何使用它们来管理作用域。到最后，你会对模块系统有深入的了解，并且能够像专业人士一样使用作用域！
 
-[workspaces]: ch14-03-cargo-workspaces.html
+[workspaces]: ch14-03-cargo-workspaces.md

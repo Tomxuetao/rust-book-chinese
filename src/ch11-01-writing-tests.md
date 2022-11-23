@@ -258,10 +258,8 @@ Cargo 编译并运行了测试。在 `Compiling`、`Finished` 和 `Running` 这�
 
 现在你知道了几种编写测试的方法，让我们看看运行测试时会发生什么，和可以用于 `cargo test` 的不同选项。
 
-[concatenation-with-the--operator-or-the-format-macro]:
-ch08-02-strings.html#使用--运算符或-format-宏拼接字符串
-[controlling-how-tests-are-run]:
-ch11-02-running-tests.html#控制测试如何运行
-[derivable-traits]: appendix-03-derivable-traits.html
-[doc-comments]: ch14-02-publishing-to-crates-io.html#文档注释作为测试
-[paths-for-referring-to-an-item-in-the-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
+[concatenation-with-the--operator-or-the-format-macro]: ch08-02-strings.md#使用--运算符或-format-宏拼接字符串
+[controlling-how-tests-are-run]: ch11-02-running-tests.md#控制测试如何运行
+[derivable-traits]: appendix-03-derivable-traits.md
+[doc-comments]: ch14-02-publishing-to-crates-io.md#文档注释作为测试
+[paths-for-referring-to-an-item-in-the-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md

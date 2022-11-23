@@ -146,6 +146,6 @@
 >
 > 第十章会讲到如何修复这个问题以便在结构体中存储引用，不过现在，我们会使用像 `String` 这类拥有所有权的类型来替代 `&str` 这样的引用以修正这个错误。
 
-[tuples]: ch03-02-data-types.html#元组类型
-[move]: ch04-01-what-is-ownership.html#变量与数据交互的方式一移动
-[copy]: ch04-01-what-is-ownership.html#变量与数据交互的方式二克隆
+[tuples]: ch03-02-data-types.md#元组类型
+[move]: ch04-01-what-is-ownership.md#变量与数据交互的方式一移动
+[copy]: ch04-01-what-is-ownership.md#变量与数据交互的方式二克隆

@@ -92,7 +92,7 @@ const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 
 现在我们已经了解了变量如何工作，让我们看看变量可以拥有的更多数据类型。
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#比较猜测的数字和秘密数字
-[data-types]: ch03-02-data-types.html#数据类型
-[storing-values-with-variables]: ch02-00-guessing-game-tutorial.html#使用变量储存值
+[comparing-the-guess-to-the-secret-number]: ch02-01-guessing-game-tutorial.md
+[data-types]: ch03-02-data-types.md#数据类型
+[storing-values-with-variables]: ch02-01-guessing-game-tutorial.md#使用变量储存值
 [const-eval]: https://doc.rust-lang.org/reference/const_eval.html

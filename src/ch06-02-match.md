@@ -114,5 +114,5 @@ Rust 还提供了一个模式，当我们不想使用通配模式获取的值时
 
 我们将在[第 18 章][ch18-00-patterns]<!-- ignore -->中介绍更多关于模式和匹配的内容。现在，让我们继续讨论 `if let` 语法，这在 `match` 表达式有点啰嗦的情况下很有用。
 
-[tuples]: ch03-02-data-types.html#元组类型
-[ch18-00-patterns]: ch18-00-patterns.html
+[tuples]: ch03-02-data-types.md#元组类型
+[ch18-00-patterns]: ch18-00-patterns.md

@@ -72,4 +72,4 @@ Rust 的错误处理功能被设计为帮助你编写更加健壮的代码。`pa
 
 现在我们已经见识过了标准库中 `Option` 和 `Result` 泛型枚举的能力了，在下一章让我们聊聊泛型是如何工作的，以及如何在你的代码中使用他们。
 
-[encoding]: ch17-03-oo-design-patterns.html#将状态和行为编码为类型
+[encoding]: ch17-03-oo-design-patterns.md#将状态和行为编码为类型

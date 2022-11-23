@@ -231,8 +231,6 @@ trait 和 trait bound 让我们使用泛型类型参数来减少重复，并仍�
 
 这里还有一种泛型，我们一直在使用它甚至都没有察觉它的存在，这就是 **生命周期**（*lifetimes*）。不同于其他泛型帮助我们确保类型拥有期望的行为，生命周期则有助于确保引用在我们需要他们的时候一直有效。让我们学习生命周期是如何做到这些的。
 
-[stack-only-data-copy]:
-ch04-01-what-is-ownership.html#只在栈上的数据拷贝
-[using-trait-objects-that-allow-for-values-of-different-types]:
-ch17-02-trait-objects.html#为使用不同类型的值而设计的-trait-对象
-[methods]: ch05-03-method-syntax.html#定义方法
+[stack-only-data-copy]: ch04-01-what-is-ownership.md#只在栈上的数据拷贝
+[using-trait-objects-that-allow-for-values-of-different-types]: ch17-02-trait-objects.md
+[methods]: ch05-03-method-syntax.md#定义方法

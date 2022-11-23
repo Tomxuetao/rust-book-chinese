@@ -213,5 +213,5 @@
 
 接下来，让我们看看另一个提供了多样灵活性的 Rust 功能：模式。贯穿全书的模式, 我们已经和它们打过照面了，但并没有见识过它们的全部本领。让我们开始探索吧！
 
-[more-info-than-rustc]: ch09-03-to-panic-or-not-to-panic.html#当我们比编译器知道更多的情况
-[macros]: ch19-05-macros.html#宏
+[more-info-than-rustc]: ch09-03-to-panic-or-not-to-panic.md#当我们比编译器知道更多的情况
+[macros]: ch19-05-macros.md#宏

@@ -475,19 +475,19 @@ You win!
 本项目通过动手实践，向你介绍了 Rust 新概念：`let`、`match`、函数、使用外部 crate 等等，接下来的几章，你会继续深入学习这些概念。第三章介绍大部分编程语言都有的概念，比如变量、数据类型和函数，以及如何在 Rust 中使用它们。第四章探索所有权（ownership），这是一个 Rust 同其他语言大不相同的功能。第五章讨论结构体和方法的语法，而第六章侧重解释枚举。
 
 [prelude]: https://doc.rust-lang.org/std/prelude/index.html
-[variables-and-mutability]: ch03-01-variables-and-mutability.html#变量和可变性
-[comments]: ch03-04-comments.html
+[variables-and-mutability]: ch03-01-variables-and-mutability.md#变量和可变性
+[comments]: ch03-04-comments.md
 [string]: https://doc.rust-lang.org/std/string/struct.String.html
 [iostdin]: https://doc.rust-lang.org/std/io/struct.Stdin.html
 [read_line]: https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line
 [result]: https://doc.rust-lang.org/std/result/enum.Result.html
-[enums]: ch06-00-enums.html
+[enums]: ch06-00-enums.md
 [expect]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect
-[recover]: ch09-02-recoverable-errors-with-result.html
+[recover]: ch09-02-recoverable-errors-with-result.md
 [randcrate]: https://crates.io/crates/rand
 [semver]: http://semver.org
 [cratesio]: https://crates.io/
 [doccargo]: http://doc.crates.io
 [doccratesio]: http://doc.crates.io/crates-io.html
-[match]: ch06-02-match.html
+[match]: ch06-02-match.md
 [parse]: https://doc.rust-lang.org/std/primitive.str.html#method.parse

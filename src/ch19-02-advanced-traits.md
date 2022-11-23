@@ -231,9 +231,9 @@ Rust 既不能避免一个 trait 与另一个 trait 拥有相同名称的方法�
 
 上面便是 newtype 模式如何与 trait 结合使用的；还有一个不涉及 trait 的实用模式。现在让我们将话题的焦点转移到一些与 Rust 类型系统交互的高级方法上来吧。
 
-[newtype]: ch19-03-advanced-types.html#为了类型安全和抽象而使用-newtype-模式
-[implementing-a-trait-on-a-type]: ch10-02-traits.html#为类型实现-trait
-[the-iterator-trait-and-the-next-method]: ch13-02-iterators.html#iterator-trait-和-next-方法
-[traits-defining-shared-behavior]: ch10-02-traits.html#trait定义共享的行为
-[smart-pointer-deref]: ch15-02-deref.html#通过实现-deref-trait-将某类型像引用一样处理
-[tuple-structs]: ch05-01-defining-structs.html#使用没有命名字段的元组结构体来创建不同的类型
+[newtype]: ch19-03-advanced-types.md#为了类型安全和抽象而使用-newtype-模式
+[implementing-a-trait-on-a-type]: ch10-02-traits.md#为类型实现-trait
+[the-iterator-trait-and-the-next-method]: ch13-02-iterators.md#iterator-trait-和-next-方法
+[traits-defining-shared-behavior]: ch10-02-traits.md
+[smart-pointer-deref]: ch15-02-deref.md#通过实现-deref-trait-将某类型像引用一样处理
+[tuple-structs]: ch05-01-defining-structs.md#使用没有命名字段的元组结构体来创建不同的类型

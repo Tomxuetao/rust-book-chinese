@@ -342,8 +342,6 @@ Worker 2 got a job; executing.
 
 示例 20-20 中的代码使用的 `let job = receiver.lock().unwrap().recv().unwrap();` 之所以可以工作是因为对于 `let` 来说，当 `let` 语句结束时任何表达式中等号右侧使用的临时值都会立即被丢弃。然而 `while let`（`if let` 和 `match`）直到相关的代码块结束都不会丢弃临时值。在示例 20-21 中，`job()` 调用期间锁一直持续，这也意味着其他的 worker 无法接受任务。
 
-[creating-type-synonyms-with-type-aliases]:
-ch19-03-advanced-types.html#类型别名用来创建类型同义词
-[integer-types]: ch03-02-data-types.html#整型
-[storing-closures-using-generic-parameters-and-the-fn-traits]:
-ch13-01-closures.html#使用带有泛型和-fn-trait-的闭包
+[creating-type-synonyms-with-type-aliases]: ch19-03-advanced-types.md#类型别名用来创建类型同义词
+[integer-types]: ch03-02-data-types.md#整型
+[storing-closures-using-generic-parameters-and-the-fn-traits]: ch13-01-closures.md#使用带有泛型和-fn-trait-的闭包

@@ -146,4 +146,4 @@
 
 标准库中也有其他提供内部可变性的类型，比如 `Cell<T>`，它类似 `RefCell<T>` 但有一点除外：它并非提供内部值的引用，而是把值拷贝进和拷贝出 `Cell<T>`。还有 `Mutex<T>`，其提供线程间安全的内部可变性，我们将在第 16 章中讨论其用法。请查看标准库来获取更多细节关于这些不同类型之间的区别。
 
-[wheres-the---operator]: ch05-03-method-syntax.html#--运算符到哪去了
+[wheres-the---operator]: ch05-03-method-syntax.md#--运算符到哪去了

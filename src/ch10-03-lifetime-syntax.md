@@ -292,8 +292,6 @@ let s: &'static str = "I have a static lifetime.";
 
 你可能不会相信，这个话题还有更多需要学习的内容：第十七章会讨论 trait 对象，这是另一种使用 trait 的方式。还有更多更复杂的涉及生命周期注解的场景，只有在非常高级的情况下才会需要它们；对于这些内容，请阅读 [Rust Reference][reference]。不过接下来，让我们聊聊如何在 Rust 中编写测试，来确保代码的所有功能能像我们希望的那样工作！
 
-[references-and-borrowing]:
-ch04-02-references-and-borrowing.html#引用与借用
-[string-slices-as-parameters]:
-ch04-03-slices.html#字符串-slice-作为参数
+[references-and-borrowing]: ch04-02-references-and-borrowing.md#引用与借用
+[string-slices-as-parameters]: ch04-03-slices.md#字符串-slice-作为参数
 [reference]: https://doc.rust-lang.org/reference/index.html

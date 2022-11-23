@@ -110,6 +110,5 @@ Rust 的测试功能提供了一个确保即使你改变了函数的实现方式
 
 让我们将本章和其他之前章节所学的知识组合起来，在下一章一起编写一个项目！
 
-[paths]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
-[separating-modules-into-files]:
-ch07-05-separating-modules-into-different-files.html
+[paths]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md
+[separating-modules-into-files]: ch07-05-separating-modules-into-different-files.md

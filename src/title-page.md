@@ -13,7 +13,7 @@
 
 本书也有 [由 No Starch Press 出版的纸质版和电子版][nsprust]。
 
-[install]: ch01-01-installation.html
-[editions]: appendix-05-editions.html
+[install]: ch01-01-installation.md
+[editions]: appendix-05-editions.md
 [nsprust]: https://nostarch.com/rust
-[translations]: appendix-06-translation.html
+[translations]: appendix-06-translation.md

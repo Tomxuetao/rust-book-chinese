@@ -133,10 +133,8 @@ Rust 需要知道应该为特定类型的值分配多少内存，同时所有同
 接下来，让我们讨论一下函数和闭包！
 
 [encapsulation-that-hides-implementation-details]:
-ch17-01-what-is-oo.html#封装隐藏了实现细节
-[string-slices]: ch04-03-slices.html#字符串-slice
-[the-match-control-flow-operator]:
-ch06-02-match.html#match-控制流运算符
-[using-trait-objects-that-allow-for-values-of-different-types]:
-ch17-02-trait-objects.html#为使用不同类型的值而设计的-trait-对象
-[using-the-newtype-pattern]: ch19-02-advanced-traits.html#newtype-模式用以在外部类型上实现外部-trait
+ch17-01-what-is-oo.md#封装隐藏了实现细节
+[string-slices]: ch04-03-slices.md#字符串-slice
+[the-match-control-flow-operator]: ch06-02-match.md
+[using-trait-objects-that-allow-for-values-of-different-types]: ch17-02-trait-objects.md
+[using-the-newtype-pattern]: ch19-02-advanced-traits.md#newtype-模式用以在外部类型上实现外部-trait

@@ -60,5 +60,5 @@
 
 接下来让我们学习宏！
 
-[advanced-traits]: ch19-02-advanced-traits.html#高级-trait
-[using-trait-objects-that-allow-for-values-of-different-types]: ch17-02-trait-objects.html#为使用不同类型的值而设计的-trait-对象
+[advanced-traits]: ch19-02-advanced-traits.md#高级-trait
+[using-trait-objects-that-allow-for-values-of-different-types]: ch17-02-trait-objects.md

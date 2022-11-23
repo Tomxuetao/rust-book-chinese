@@ -180,4 +180,4 @@ fn main() {
 
 我们可以使用泛型来编写不重复的代码，而 Rust 将会为每一个实例编译其特定类型的代码。这意味着在使用泛型时没有运行时开销；当代码运行，它的执行效率就跟好像手写每个具体定义的重复代码一样。这个单态化过程正是 Rust 泛型在运行时极其高效的原因。
 
-[traits-as-parameters]: ch10-02-traits.html#trait-作为参数
+[traits-as-parameters]: ch10-02-traits.md#trait-作为参数

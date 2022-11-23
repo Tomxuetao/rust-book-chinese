@@ -68,26 +68,22 @@
 
 当我们运行这个代码时，会出现带有如下核心信息的错误：
 
-```text
 <<< @/listings/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:3
 
 `println!` 宏能处理很多类型的格式，不过，`{}` 默认告诉 `println!` 使用被称为 `Display` 的格式：意在提供给直接终端用户查看的输出。目前为止见过的基本类型都默认实现了 `Display`，因为它就是向用户展示 `1` 或其他任何基本类型的唯一方式。不过对于结构体，`println!` 应该用来输出的格式是不明确的，因为这有更多显示的可能性：是否需要逗号？需要打印出大括号吗？所有字段都应该显示吗？由于这种不确定性，Rust 不会尝试猜测我们的意图，所以结构体并没有提供一个 `Display` 实现来使用 `println!` 与 `{}` 占位符。
 
 但是如果我们继续阅读错误，将会发现这个有帮助的信息：
 
-```text
 <<< @/listings/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:9:10
 
 让我们来试试！现在 `println!` 宏调用看起来像 `println!("rect1 is {:?}", rect1);` 这样。在 `{}` 中加入 `:?` 指示符告诉 `println!` 我们想要使用叫做 `Debug` 的输出格式。`Debug` 是一个 trait，它允许我们以一种对开发者有帮助的方式打印结构体，以便当我们调试代码时能看到它的值。
 
 这样调整后再次运行程序。见鬼了！仍然能看到一个错误：
 
-```text
 <<< @/listings/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:3
 
 不过编译器又一次给出了一个有帮助的信息：
 
-```text
 <<< @/listings/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:9:10
 
 Rust **确实** 包含了打印出调试信息的功能，不过我们必须为结构体显式选择这个功能。为此，在结构体定义之前加上外部属性 `#[derive(Debug)]`，如示例 5-12 所示：
@@ -124,9 +120,9 @@ Rust **确实** 包含了打印出调试信息的功能，不过我们必须为�
 
 我们的 `area` 函数是非常特殊的，它只计算长方形的面积。如果这个行为与 `Rectangle` 结构体再结合得更紧密一些就更好了，因为它不能用于其他类型。现在让我们看看如何继续重构这些代码，来将 `area` 函数协调进 `Rectangle` 类型定义的 `area` **方法** 中。
 
-[the-tuple-type]: ch03-02-data-types.html#元组类型
+[the-tuple-type]: ch03-02-data-types.md#元组类型
 [app-c]: appendix-03-derivable-traits.md
 [println]: https://doc.rust-lang.org/std/macro.println.html
 [dbg]: https://doc.rust-lang.org/std/macro.dbg.html
-[err]: ch12-06-writing-to-stderr-instead-of-stdout.html
+[err]: ch12-06-writing-to-stderr-instead-of-stdout.md
 [attributes]: https://doc.rust-lang.org/stable/reference/attributes.html

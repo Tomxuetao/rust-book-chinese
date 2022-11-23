@@ -88,7 +88,7 @@
 
 例如，当你在 `Option<T>` 实例上使用 `unwrap_or_default` 方法时，`Default` trait 是必须的。如果 `Option<T>` 是 `None`的话, `unwrap_or_default` 方法将返回存储在 `Option<T>` 中 `T` 类型的 `Default::default` 的结果。
 
-[creating-instances-from-other-instances-with-struct-update-syntax]: ch05-01-defining-structs.html#使用结构体更新语法从其他实例创建实例
-[stack-only-data-copy]: ch04-01-what-is-ownership.html#只在栈上的数据拷贝
-[ways-variables-and-data-interact-clone]: ch04-01-what-is-ownership.html#变量与数据交互的方式二克隆
-[macros]: ch19-05-macros.html#宏
+[creating-instances-from-other-instances-with-struct-update-syntax]: ch05-01-defining-structs.md#使用结构体更新语法从其他实例创建实例
+[stack-only-data-copy]: ch04-01-what-is-ownership.md#只在栈上的数据拷贝
+[ways-variables-and-data-interact-clone]: ch04-01-what-is-ownership.md#变量与数据交互的方式二克隆
+[macros]: ch19-05-macros.md#宏

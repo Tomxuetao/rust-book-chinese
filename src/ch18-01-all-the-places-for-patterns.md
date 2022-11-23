@@ -129,4 +129,4 @@ let PATTERN = EXPRESSION;
 现在我们见过了很多使用模式的方式了，不过模式在每个使用它的地方并不以相同的方式工作；在一些地方，模式必须是 *irrefutable* 的，意味着他们必须匹配所提供的任何值。在另一些情况，他们则可以是 refutable 的。接下来让我们讨论这两个概念。
 
 [ignoring-values-in-a-pattern]:
-ch18-03-pattern-syntax.html#忽略模式中的值
+ch18-03-pattern-syntax.md#忽略模式中的值

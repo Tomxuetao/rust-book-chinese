@@ -37,5 +37,5 @@ Rust 提供了用于消息传递的信道，和像 `Mutex<T>` 和 `Arc<T>` 这�
 
 接下来，让我们讨论一下当 Rust 程序变得更大时，有哪些符合语言习惯的问题建模方法和结构化解决方案，以及 Rust 的风格是如何与面向对象编程（Object Oriented Programming）中那些你所熟悉的概念相联系的。
 
-[sharing-a-mutext-between-multiple-threads]: ch16-03-shared-state.html#在线程间共享-mutext
+[sharing-a-mutext-between-multiple-threads]: ch16-03-shared-state.md#在线程间共享-mutext
 [nomicon]: https://doc.rust-lang.org/nomicon/index.html

@@ -189,7 +189,7 @@ assert_eq!(slice, &[2, 3]);
 
 所有权系统影响了 Rust 中很多其他部分的工作方式，所以我们还会继续讲到这些概念，这将贯穿本书的余下内容。让我们开始第五章，来看看如何将多份数据组合进一个 `struct` 中。
 
-[ch13]: ch13-02-iterators.html
-[ch6]: ch06-02-match.html#绑定值的模式
-[strings]: ch08-02-strings.html#使用字符串存储-utf-8-编码的文本
-[deref-coercions]: ch15-02-deref.html#函数和方法的隐式-deref-强制转换
+[ch13]: ch13-02-iterators.md
+[ch6]: ch06-02-match.md#绑定值的模式
+[strings]: ch08-02-strings.md
+[deref-coercions]: ch15-02-deref.md#函数和方法的隐式-deref-强制转换

@@ -120,4 +120,4 @@ box 只提供了间接存储和堆分配；他们并没有任何其他特殊的�
 
 `Box<T>` 类型是一个智能指针，因为它实现了 `Deref` trait，它允许 `Box<T>` 值被当作引用对待。当 `Box<T>` 值离开作用域时，由于 `Box<T>` 类型 `Drop` trait 的实现，box 所指向的堆数据也会被清除。让我们更详细的探索一下这两个 trait。这两个 trait 对于在本章余下讨论的其他智能指针所提供的功能中，将会更为重要。
 
-[trait-objects]: ch17-02-trait-objects.html#为使用不同类型的值而设计的-trait-对象
+[trait-objects]: ch17-02-trait-objects.md

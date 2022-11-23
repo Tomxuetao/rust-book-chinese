@@ -16,7 +16,7 @@
 
 对于 Linux、macOS 和 Windows PowerShell，输入：
 
-```
+```cmd
 $ mkdir ~/projects
 $ cd ~/projects
 $ mkdir hello_world
@@ -50,7 +50,7 @@ fn main() {
 
 保存文件，并回到当前目录为“~/projects/hello_world”的终端窗口。在 Linux 或 macOS 上，输入如下命令，编译并运行文件：
 
-```
+```powershell
 $ rustc main.rs
 $ ./main
 Hello, world!
@@ -115,13 +115,15 @@ $ rustc main.rs
 $ ls
 main  main.rs
 
+
 在 Windows 的 CMD 上，则输入如下内容：
 
-```cmd
+```
 > dir /B %= the /B option says to only show the file names =%
 main.exe
 main.pdb
 main.rs
+```
 
 这展示了扩展名为 *.rs* 的源文件、可执行文件（在 Windows 下是 *main.exe*，其它平台是 *main*），以及当使用 CMD 时会有一个包含调试信息、扩展名为 *.pdb* 的文件。从这里开始运行 *main* 或 *main.exe* 文件，如下：
 
@@ -135,5 +137,5 @@ $ ./main # Windows 是 .\main.exe
 
 仅仅使用 `rustc` 编译简单程序是没问题的，不过随着项目的增长，你可能需要管理你项目的方方面面，并让代码易于分享。接下来，我们要介绍一个叫做 Cargo 的工具，它会帮助你编写真实世界中的 Rust 程序。
 
-[troubleshooting]: ch01-01-installation.html#troubleshooting
+[troubleshooting]: ch01-01-installation.md#troubleshooting
 [devtools]: appendix-04-useful-development-tools.md

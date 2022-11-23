@@ -156,8 +156,7 @@ error: could not compile `gui` due to previous error
 这个错误意味着我们不能将此 trait 用于 trait 对象。如果你想了解更多有关对象安全的细节，请移步至 [Rust RFC 255][Rust RFC 255 ref] 或查看 [Rust Reference][Rust Reference ref]
 
 
-[performance-of-code-using-generics]:
-ch10-01-syntax.html#泛型代码的性能
-[dynamically-sized]: ch19-03-advanced-types.html#动态大小类型和-sized-trait
+[performance-of-code-using-generics]: ch10-01-syntax.md#泛型代码的性能
+[dynamically-sized]: ch19-03-advanced-types.md#动态大小类型和-sized-trait
 [Rust RFC 255 ref]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 [Rust Reference ref]: https://doc.rust-lang.org/reference/items/traits.html#object-safety
