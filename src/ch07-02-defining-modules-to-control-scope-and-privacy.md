@@ -27,7 +27,7 @@
 
 这里我们创建一个名为`backyard`的二进制crate来说明这些规则。该crate的路径同样命名为`backyard`，该路径包含了这些文件和目录：
 
-```text
+```
 backyard
 ├── Cargo.lock
 ├── Cargo.toml
@@ -36,7 +36,8 @@ backyard
     │   └── vegetables.rs
     ├── garden.rs
     └── main.rs
-
+```
+    
 这个例子中的crate根文件是*src/main.rs*，该文件包括了：
 
 <span class="filename">Filename: src/main.rs</span>
@@ -77,7 +78,7 @@ backyard
 
 示例 7-2 展示了示例 7-1 中的模块树的结构。
 
-```text
+```
 crate
  └── front_of_house
      ├── hosting
