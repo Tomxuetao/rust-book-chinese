@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as r,d as o}from"./app.a07ec8df.js";const l=JSON.parse('{"title":"\u524D\u8A00","description":"","frontmatter":{},"headers":[],"relativePath":"foreword.md","lastUpdated":1671182487000}'),s={name:"foreword.md"},a=o("",9),c=[a];function p(n,d,_,u,f,i){return r(),e("div",null,c)}const h=t(s,[["render",p]]);export{l as __pageData,h as default};
