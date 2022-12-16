@@ -41,19 +41,16 @@ backyard
 
 <span class="filename">Filename: src/main.rs</span>
 
-```,ignore
 <<< @/listings/ch07-managing-growing-projects/quick-reference-example/src/main.rs
 
 `pub mod garden;`行告诉编译器应该包含在*src/garden.rs*文件中发现的代码:
 
 <span class="filename">Filename: src/garden.rs</span>
 
-```,ignore
 <<< @/listings/ch07-managing-growing-projects/quick-reference-example/src/garden.rs
 
 在此处， `pub mod vegetables;`意味着在*src/garden/vegetables.rs*中的代码也应该被包括。这些代码是:
 
-```,ignore
 <<< @/listings/ch07-managing-growing-projects/quick-reference-example/src/garden/vegetables.rs
 
 现在让我们深入了解这些规则的细节并在实际中演示它们！
